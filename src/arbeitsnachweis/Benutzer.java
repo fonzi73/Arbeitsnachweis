@@ -6,10 +6,12 @@
 package arbeitsnachweis;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,6 +28,7 @@ public class Benutzer {
     // Objekt Variablen
     private int id;
     private String name;
+    private ArrayList<Benutzer> benutzerL;
       
     
     // Konstruktor
@@ -42,6 +45,12 @@ public class Benutzer {
     public String getName() {
         return name;
     }
+
+    public ArrayList<Benutzer> getBenutzerL() {
+        return benutzerL;
+    }
+    
+    
     
     // Setter
     public void setId(int id) {
@@ -51,6 +60,12 @@ public class Benutzer {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setBenutzerL(ArrayList<Benutzer> benutzerL) {
+        this.benutzerL = benutzerL;
+    }
+    
+    
 
     // toString
     @Override
@@ -64,6 +79,39 @@ public class Benutzer {
      * 
      * 
      */
+    /**
+     * liefert alle Datensätze aus der Tabelle als ArrayList mit Ojekten zurück
+     */
+    public static ArrayList<Benutzer> getAll() {
+        ArrayList<Benutzer> benutzerL = new ArrayList<>();
+        try {
+             // VERBINDUNG AUFBBAUEN:
+            Connection con = MySQLConnection.getConnection();
+            // STATEMENT
+            String sql = "SELECT * FROM benutzer";
+            st = con.createStatement();
+            rst = st.executeQuery(sql);
+            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
+                Benutzer benutzer = new Benutzer(rst.getInt("id"), rst.getString("name"));
+                benutzerL.add(benutzer);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                
+                if (st != null) {
+                    st.close();
+                }
+                if (rst != null) {
+                    rst.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return benutzerL;
+    }
     
     public static void insert(Benutzer user){
         try {

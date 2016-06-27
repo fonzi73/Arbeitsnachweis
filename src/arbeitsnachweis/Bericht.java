@@ -5,10 +5,13 @@
  */
 package arbeitsnachweis;
 
+import static arbeitsnachweis.Benutzer.st;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,6 +30,7 @@ public class Bericht {
     private String dokumentation;
     private String zeit;
     private int nachweis_id;
+    private ArrayList<Bericht> berichtL;
 
     // Konstruktor
     public Bericht(int id, String dokumentation, String zeit, int nachweis_id) {
@@ -53,6 +57,11 @@ public class Bericht {
         return nachweis_id;
     }
 
+    public ArrayList<Bericht> getBerichtL() {
+        return berichtL;
+    }
+    
+
     // Setter
     public void setId(int id) {
         this.id = id;
@@ -66,6 +75,11 @@ public class Bericht {
         this.nachweis_id = nachweis_id;
     }
 
+    public void setBerichtL(ArrayList<Bericht> berichtL) {
+        this.berichtL = berichtL;
+    }
+    
+
     // toString
     @Override
     public String toString() {
@@ -73,6 +87,39 @@ public class Bericht {
     }
     
     
-    
+    public static ArrayList<Bericht> getAll() {
+        ArrayList<Bericht> berichtL = new ArrayList<>();
+        try {
+             // VERBINDUNG AUFBBAUEN:
+            Connection con = MySQLConnection.getConnection();
+            // STATEMENT
+            String sql = "SELECT * FROM bericht";
+            st = con.createStatement();
+            rst = st.executeQuery(sql);
+            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
+                Bericht bericht = new Bericht(rst.getInt("id"), 
+                        rst.getString("dokumentation"), 
+                        rst.getString("zeit"), 
+                        rst.getInt("nachweis_id"));
+                
+                berichtL.add(bericht);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                
+                if (st != null) {
+                    st.close();
+                }
+                if (rst != null) {
+                    rst.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return berichtL;
+    }
     
 }

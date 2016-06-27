@@ -18,6 +18,7 @@ CREATE TABLE `nachweis` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `nr` int(11) DEFAULT NULL,
 `benutzer_id` int(11) NOT NULL,
+`datum` DATE,
 PRIMARY KEY (`id`),
 FOREIGN KEY (`benutzer_id`) REFERENCES `benutzer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

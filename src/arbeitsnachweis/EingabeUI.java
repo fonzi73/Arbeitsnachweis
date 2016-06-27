@@ -5,17 +5,46 @@
  */
 package arbeitsnachweis;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  *
  * @author fonzi
  */
 public class EingabeUI extends javax.swing.JFrame {
 
+    
+    int seiteAktuell = 0;
+    
+    
     /**
      * Creates new form EingabeUI
      */
     public EingabeUI() {
+        
+        
         initComponents();
+        fillWithValues();
+        
+    }
+
+    private void fillWithValues() {
+        
+        
+        /**
+         * Felder in Blatt Füllen
+         */
+        jTextField1.setText("" + Nachweis.getAll().get(0).getJahr());
+        jTextField2.setText("" + Nachweis.getAll().get(0).getNr());
+        jTextField3.setText(Benutzer.getAll().get(0).getName());
+        jTextFieldDatum1.setText("" );
+        jTextFieldDatum2.setText("" + ((Calendar.DAY_OF_WEEK) + 4));
+        
+
     }
 
     /**
@@ -217,6 +246,18 @@ public class EingabeUI extends javax.swing.JFrame {
 
         jLabel5.setText("bis");
 
+        jTextFieldDatum1.setEditable(false);
+        jTextFieldDatum1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextFieldDatum1.setEnabled(false);
+        jTextFieldDatum1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDatum1ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldDatum2.setEditable(false);
+        jTextFieldDatum2.setBackground(new java.awt.Color(204, 204, 204));
+        jTextFieldDatum2.setEnabled(false);
         jTextFieldDatum2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDatum2ActionPerformed(evt);
@@ -2235,6 +2276,10 @@ public class EingabeUI extends javax.swing.JFrame {
     private void jTextFieldDatum2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatum2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDatum2ActionPerformed
+
+    private void jTextFieldDatum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatum1ActionPerformed
+        fillWithValues();
+    }//GEN-LAST:event_jTextFieldDatum1ActionPerformed
 
     /**
      * @param args the command line arguments

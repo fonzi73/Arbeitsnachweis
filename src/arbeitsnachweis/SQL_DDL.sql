@@ -29,11 +29,11 @@ ALTER TABLE bericht AUTO_INCREMENT=1;
 -- Alle Datensätze der sieben Themenbereiche in die Datenbank einfügen
 --
 INSERT INTO benutzer VALUES (NULL, "Marco Fontana");
-INSERT INTO benutzer VALUES (NULL, "Paulina Fontana");
+--INSERT INTO benutzer VALUES (NULL, "Paulina Fontana");
 
-INSERT INTO nachweis VALUES (NULL, 1, 1); -- Marco
-INSERT INTO nachweis VALUES (NULL, 1, 2); -- Paulina
-INSERT INTO nachweis VALUES (NULL, 2, 2); -- Paulina
+INSERT INTO nachweis VALUES (NULL, 1, 1, '2016-07-01'); -- Marco
+INSERT INTO nachweis VALUES (NULL, 1, 1, '2016-07-01'); -- Paulina
+INSERT INTO nachweis VALUES (NULL, 2, 1, '2016-07-01'); -- Paulina
 
 INSERT INTO bericht VALUES (NULL, "Montag Zeile 1", "02:00:00", 1); -- Marco
 INSERT INTO bericht VALUES (NULL, "Zeile 2", "02:00:00", 1); -- Marco
