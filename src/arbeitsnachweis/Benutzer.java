@@ -73,6 +73,8 @@ public class Benutzer {
         return "Benutzer{" + "id=" + id + ", name=" + name + '}';
     }
     
+    
+    
     /**
      * CRUD Funktionen
      * 
@@ -82,7 +84,7 @@ public class Benutzer {
     /**
      * liefert alle Datensätze aus der Tabelle als ArrayList mit Ojekten zurück
      */
-    public static ArrayList<Benutzer> getAll() {
+    public static ArrayList<Benutzer> getAllBenutzer() {
         ArrayList<Benutzer> benutzerL = new ArrayList<>();
         try {
              // VERBINDUNG AUFBBAUEN:
@@ -113,7 +115,7 @@ public class Benutzer {
         return benutzerL;
     }
     
-    public static void insert(Benutzer user){
+    public static void insertBenutzer(Benutzer user){
         try {
             // VERBINDUNG AUFBBAUEN:
             Connection con = MySQLConnection.getConnection();
@@ -136,6 +138,30 @@ public class Benutzer {
                 }
                 if (rst != null) {
                     rst.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+     public void updatenBenutzter() {
+        // Verbindung zu MySQL
+        try {
+            Connection con = MySQLConnection.getConnection();
+            // Prepared Statement
+            String sql = "UPDATE benutzer SET name=? WHERE id=?";
+            pst = con.prepareStatement(sql);
+            // Übernimmt werte aus dem GUI
+            pst.setString(1, name);
+            pst.setInt(2, id);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage()); // Output Meldung wenn Fehler
+        } finally {
+            try {
+                
+                if (pst != null) {
+                    pst.close();
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());

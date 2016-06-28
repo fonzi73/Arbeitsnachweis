@@ -18,13 +18,13 @@ import java.util.ArrayList;
  * @author fonzi
  */
 public class Bericht {
-    
+
     // Konnektoren DB
     static Connection con = null;
     static PreparedStatement pst = null;
     static Statement st = null;
     static ResultSet rst = null;
-    
+
     // Objekt Variablen
     private int id;
     private String dokumentation;
@@ -60,7 +60,6 @@ public class Bericht {
     public ArrayList<Bericht> getBerichtL() {
         return berichtL;
     }
-    
 
     // Setter
     public void setId(int id) {
@@ -78,37 +77,44 @@ public class Bericht {
     public void setBerichtL(ArrayList<Bericht> berichtL) {
         this.berichtL = berichtL;
     }
-    
+
+//    public  ArrayList<Bericht> getBerichtID() {
+//        ArrayList<Bericht> auslesen = Bericht.getAllBericht();
+//
+//        for (int i = 0; i <= auslesen.size(); i++) {
+//            System.out.println(i);
+//        }
+//       
+//    }
 
     // toString
     @Override
     public String toString() {
         return "Bericht{" + "id=" + id + ", dokumentation=" + dokumentation + ", zeit=" + zeit + ", nachweis_id=" + nachweis_id + '}';
     }
-    
-    
-    public static ArrayList<Bericht> getAll() {
+
+    public static ArrayList<Bericht> getAllBericht() {
         ArrayList<Bericht> berichtL = new ArrayList<>();
         try {
-             // VERBINDUNG AUFBBAUEN:
+            // VERBINDUNG AUFBBAUEN:
             Connection con = MySQLConnection.getConnection();
             // STATEMENT
             String sql = "SELECT * FROM bericht";
             st = con.createStatement();
             rst = st.executeQuery(sql);
             while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
-                Bericht bericht = new Bericht(rst.getInt("id"), 
-                        rst.getString("dokumentation"), 
-                        rst.getString("zeit"), 
+                Bericht bericht = new Bericht(rst.getInt("id"),
+                        rst.getString("dokumentation"),
+                        rst.getString("zeit"),
                         rst.getInt("nachweis_id"));
-                
+
                 berichtL.add(bericht);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
             try {
-                
+
                 if (st != null) {
                     st.close();
                 }
@@ -121,5 +127,5 @@ public class Bericht {
         }
         return berichtL;
     }
-    
+
 }

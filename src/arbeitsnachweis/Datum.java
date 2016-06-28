@@ -11,36 +11,31 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-
-
 /**
  *
  * @author fonzi
  */
 public class Datum {
-     // create Calendar instance with actual date
-    
-        public static void datumPlus(){
-        Date montag = new Date();
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(montag);
 
-        // Erster Tag der Woche Plus 4 Tage
-        calendar.add(Calendar.DAY_OF_WEEK, 4);
+    public static String datumMontag() {
 
-        Date freitag = calendar.getTime();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.set(Calendar.DAY_OF_WEEK, 2);
+        Date date = cal.getTime();
+        String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
+        return formattedDate;
 
-        // print out the dates...
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-
-        
-        System.out.println("Now:    " + dateFormat.format(montag));
-        System.out.println("Future: " + dateFormat.format(freitag));
     }
-}
-        
-       
-    
-    
-   
 
+public static String datumFreitag() {
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.set(Calendar.DAY_OF_WEEK, 6);
+        Date date = cal.getTime();
+        String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
+        return formattedDate;
+
+    } 
+}

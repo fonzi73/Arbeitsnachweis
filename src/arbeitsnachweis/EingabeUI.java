@@ -17,34 +17,56 @@ import java.util.GregorianCalendar;
  */
 public class EingabeUI extends javax.swing.JFrame {
 
-    
+    //Benutzer be = Benutzer();
     int seiteAktuell = 0;
-    
-    
+
     /**
      * Creates new form EingabeUI
      */
     public EingabeUI() {
-        
-        
+
         initComponents();
-        fillWithValues();
+
         
+        txtField = new javax.swing.JTextField[]{
+            jDocu1, jDocu2, jDocu3, jDocu4, jDocu5, jDocu6, jDocu7, jDocu8, jDocu9, jDocu10,
+            jDocu11, jDocu12, jDocu13, jDocu14, jDocu15, jDocu16, jDocu17, jDocu18, jDocu19,
+            jDocu20, jDocu21, jDocu22, jDocu23, jDocu24, jDocu25, jDocu26, jDocu27, jDocu28,
+            jDocu29,jDocu30};
+        
+        stdField = new javax.swing.JTextField[]{
+            jStunden1,jStunden2,jStunden3,jStunden4,jStunden5,jStunden6,jStunden7,
+            jStunden8,jStunden9,jStunden10,jStunden11,jStunden12,jStunden13,jStunden14,
+            jStunden15,jStunden16,jStunden17,jStunden18,jStunden19,jStunden20,
+            jStunden21,jStunden22,jStunden23,jStunden24,jStunden25,jStunden26,
+            jStunden27,jStunden28,jStunden29,jStunden30};
+
+        fillWithValues();
     }
 
     private void fillWithValues() {
-        
-        
+
         /**
          * Felder in Blatt Füllen
          */
-        jTextField1.setText("" + Nachweis.getAll().get(0).getJahr());
-        jTextField2.setText("" + Nachweis.getAll().get(0).getNr());
-        jTextField3.setText(Benutzer.getAll().get(0).getName());
-        jTextFieldDatum1.setText("" );
-        jTextFieldDatum2.setText("" + ((Calendar.DAY_OF_WEEK) + 4));
-        
-
+        // Ausbildungsjahr
+        jTextField1.setText("" + Nachweis.getAllNachweis().get(seiteAktuell).getJahr());
+        // Ausbildungsnachweis Nr.
+        jTextField2.setText("" + Nachweis.getAllNachweis().get(seiteAktuell).getNr());
+        // Benutzer Name
+        jTextField3.setText(Benutzer.getAllBenutzer().get(seiteAktuell).getName());
+        // Datum beginn der Woche
+        jTextFieldDatum1.setText("" + Nachweis.getAllNachweis().get(seiteAktuell).getDatum());
+        // Datum ende der Woche
+        jTextFieldDatum2.setText("" + Datum.datumFreitag());
+        // Doku Felder Montag - Freitag
+        for (int i = 0; i < Bericht.getAllBericht().size(); i++) {
+            txtField[i].setText("" + Bericht.getAllBericht().get(i).getDokumentation());
+        }
+        // Stunden Felder Montag - Freitag
+        for (int i = 0; i < Bericht.getAllBericht().size(); i++) {
+            stdField[i].setText("" + Bericht.getAllBericht().get(i).getZeit());
+        }
     }
 
     /**
@@ -75,137 +97,137 @@ public class EingabeUI extends javax.swing.JFrame {
         jTextFieldGSMo = new javax.swing.JTextField();
         jPanelMontag = new javax.swing.JPanel();
         jPanelMo1 = new javax.swing.JPanel();
-        jTextField11 = new javax.swing.JTextField();
+        jDocu1 = new javax.swing.JTextField();
         jPanelMo3 = new javax.swing.JPanel();
-        jTextField31 = new javax.swing.JTextField();
+        jDocu3 = new javax.swing.JTextField();
         jPanelMo5 = new javax.swing.JPanel();
-        jTextField51 = new javax.swing.JTextField();
+        jDocu5 = new javax.swing.JTextField();
         jPanelMo4 = new javax.swing.JPanel();
-        jTextField41 = new javax.swing.JTextField();
+        jDocu4 = new javax.swing.JTextField();
         jPanelMo2 = new javax.swing.JPanel();
-        jTextField21 = new javax.swing.JTextField();
+        jDocu2 = new javax.swing.JTextField();
         jPanelMo7 = new javax.swing.JPanel();
-        jTextField61 = new javax.swing.JTextField();
+        jDocu6 = new javax.swing.JTextField();
         jPanelStundenMontag = new javax.swing.JPanel();
         jPanelSM6 = new javax.swing.JPanel();
-        jTextFieldStunden61 = new javax.swing.JTextField();
+        jStunden6 = new javax.swing.JTextField();
         jPanelSM4 = new javax.swing.JPanel();
-        jTextFieldStunden41 = new javax.swing.JTextField();
+        jStunden4 = new javax.swing.JTextField();
         jPanelSM2 = new javax.swing.JPanel();
-        jTextFieldStunden21 = new javax.swing.JTextField();
+        jStunden2 = new javax.swing.JTextField();
         jPanelSM3 = new javax.swing.JPanel();
-        jTextFieldStunden31 = new javax.swing.JTextField();
+        jStunden3 = new javax.swing.JTextField();
         jPanelSM5 = new javax.swing.JPanel();
-        jTextFieldStunden51 = new javax.swing.JTextField();
+        jStunden5 = new javax.swing.JTextField();
         jPanelSM1 = new javax.swing.JPanel();
-        jTextFieldStunden11 = new javax.swing.JTextField();
+        jStunden1 = new javax.swing.JTextField();
         jPanelDienstag = new javax.swing.JPanel();
         jPanelDi1 = new javax.swing.JPanel();
-        jTextField12 = new javax.swing.JTextField();
+        jDocu7 = new javax.swing.JTextField();
         jPanelDi3 = new javax.swing.JPanel();
-        jTextField32 = new javax.swing.JTextField();
+        jDocu9 = new javax.swing.JTextField();
         jPanelDi5 = new javax.swing.JPanel();
-        jTextField52 = new javax.swing.JTextField();
+        jDocu11 = new javax.swing.JTextField();
         jPanelDi4 = new javax.swing.JPanel();
-        jTextField42 = new javax.swing.JTextField();
+        jDocu10 = new javax.swing.JTextField();
         jPanelDi2 = new javax.swing.JPanel();
-        jTextField22 = new javax.swing.JTextField();
+        jDocu8 = new javax.swing.JTextField();
         jPanelDi6 = new javax.swing.JPanel();
-        jTextField62 = new javax.swing.JTextField();
+        jDocu12 = new javax.swing.JTextField();
         jPanelStundenDienstag = new javax.swing.JPanel();
         jPanelSD6 = new javax.swing.JPanel();
-        jTextFieldStunden62 = new javax.swing.JTextField();
+        jStunden12 = new javax.swing.JTextField();
         jPanelSD4 = new javax.swing.JPanel();
-        jTextFieldStunden42 = new javax.swing.JTextField();
+        jStunden10 = new javax.swing.JTextField();
         jPanelSD2 = new javax.swing.JPanel();
-        jTextFieldStunden22 = new javax.swing.JTextField();
+        jStunden8 = new javax.swing.JTextField();
         jPanelSD3 = new javax.swing.JPanel();
-        jTextFieldStunden32 = new javax.swing.JTextField();
+        jStunden9 = new javax.swing.JTextField();
         jPanelSD5 = new javax.swing.JPanel();
-        jTextFieldStunden52 = new javax.swing.JTextField();
+        jStunden11 = new javax.swing.JTextField();
         jPanelSD1 = new javax.swing.JPanel();
-        jTextFieldStunden12 = new javax.swing.JTextField();
+        jStunden7 = new javax.swing.JTextField();
         jTextFieldGSDi = new javax.swing.JTextField();
         jPanelMittwoch = new javax.swing.JPanel();
         jPanelMi1 = new javax.swing.JPanel();
-        jTextField13 = new javax.swing.JTextField();
+        jDocu13 = new javax.swing.JTextField();
         jPanelMi3 = new javax.swing.JPanel();
-        jTextField33 = new javax.swing.JTextField();
+        jDocu15 = new javax.swing.JTextField();
         jPanelMi5 = new javax.swing.JPanel();
-        jTextField53 = new javax.swing.JTextField();
+        jDocu17 = new javax.swing.JTextField();
         jPanelMi4 = new javax.swing.JPanel();
-        jTextField43 = new javax.swing.JTextField();
+        jDocu16 = new javax.swing.JTextField();
         jPanelMi2 = new javax.swing.JPanel();
-        jTextField23 = new javax.swing.JTextField();
+        jDocu14 = new javax.swing.JTextField();
         jPanelMi6 = new javax.swing.JPanel();
-        jTextField63 = new javax.swing.JTextField();
+        jDocu18 = new javax.swing.JTextField();
         jPanelStundenMittwoch = new javax.swing.JPanel();
         jPanelSMi6 = new javax.swing.JPanel();
-        jTextFieldStunden63 = new javax.swing.JTextField();
+        jStunden18 = new javax.swing.JTextField();
         jPanelSMi4 = new javax.swing.JPanel();
-        jTextFieldStunden43 = new javax.swing.JTextField();
+        jStunden16 = new javax.swing.JTextField();
         jPanelSMi2 = new javax.swing.JPanel();
-        jTextFieldStunden23 = new javax.swing.JTextField();
+        jStunden14 = new javax.swing.JTextField();
         jPanelSMi3 = new javax.swing.JPanel();
-        jTextFieldStunden33 = new javax.swing.JTextField();
+        jStunden15 = new javax.swing.JTextField();
         jPanelSMi5 = new javax.swing.JPanel();
-        jTextFieldStunden53 = new javax.swing.JTextField();
+        jStunden17 = new javax.swing.JTextField();
         jPanelSMi1 = new javax.swing.JPanel();
-        jTextFieldStunden13 = new javax.swing.JTextField();
+        jStunden13 = new javax.swing.JTextField();
         jTextFieldGSMi = new javax.swing.JTextField();
         jPanelDonnerstag = new javax.swing.JPanel();
         jPanelDo1 = new javax.swing.JPanel();
-        jTextField14 = new javax.swing.JTextField();
+        jDocu19 = new javax.swing.JTextField();
         jPanelDo3 = new javax.swing.JPanel();
-        jTextField34 = new javax.swing.JTextField();
+        jDocu21 = new javax.swing.JTextField();
         jPanelDo5 = new javax.swing.JPanel();
-        jTextField54 = new javax.swing.JTextField();
+        jDocu23 = new javax.swing.JTextField();
         jPanelDo4 = new javax.swing.JPanel();
-        jTextField44 = new javax.swing.JTextField();
+        jDocu22 = new javax.swing.JTextField();
         jPanelDo2 = new javax.swing.JPanel();
-        jTextField24 = new javax.swing.JTextField();
+        jDocu20 = new javax.swing.JTextField();
         jPanelDo6 = new javax.swing.JPanel();
-        jTextField64 = new javax.swing.JTextField();
+        jDocu24 = new javax.swing.JTextField();
         jPanelStundenDonnerstag = new javax.swing.JPanel();
         jPanelSDo6 = new javax.swing.JPanel();
-        jTextFieldStunden64 = new javax.swing.JTextField();
+        jStunden24 = new javax.swing.JTextField();
         jPanelSDo4 = new javax.swing.JPanel();
-        jTextFieldStunden44 = new javax.swing.JTextField();
+        jStunden22 = new javax.swing.JTextField();
         jPanelSDo2 = new javax.swing.JPanel();
-        jTextFieldStunden24 = new javax.swing.JTextField();
+        jStunden20 = new javax.swing.JTextField();
         jPanelSDo3 = new javax.swing.JPanel();
-        jTextFieldStunden34 = new javax.swing.JTextField();
+        jStunden21 = new javax.swing.JTextField();
         jPanelSDo5 = new javax.swing.JPanel();
-        jTextFieldStunden54 = new javax.swing.JTextField();
+        jStunden23 = new javax.swing.JTextField();
         jPanelSDo1 = new javax.swing.JPanel();
-        jTextFieldStunden14 = new javax.swing.JTextField();
+        jStunden19 = new javax.swing.JTextField();
         jTextFieldGSDo = new javax.swing.JTextField();
         jPanelFreitag = new javax.swing.JPanel();
         jPanelFr1 = new javax.swing.JPanel();
-        jTextField15 = new javax.swing.JTextField();
+        jDocu25 = new javax.swing.JTextField();
         jPanelFr3 = new javax.swing.JPanel();
-        jTextField35 = new javax.swing.JTextField();
+        jDocu27 = new javax.swing.JTextField();
         jPanelFr5 = new javax.swing.JPanel();
-        jTextField55 = new javax.swing.JTextField();
+        jDocu29 = new javax.swing.JTextField();
         jPanelFr4 = new javax.swing.JPanel();
-        jTextField45 = new javax.swing.JTextField();
+        jDocu28 = new javax.swing.JTextField();
         jPanelFr2 = new javax.swing.JPanel();
-        jTextField25 = new javax.swing.JTextField();
+        jDocu26 = new javax.swing.JTextField();
         jPanelFr6 = new javax.swing.JPanel();
-        jTextField65 = new javax.swing.JTextField();
+        jDocu30 = new javax.swing.JTextField();
         jPanelStundenFreitag = new javax.swing.JPanel();
         jPanelSFr6 = new javax.swing.JPanel();
-        jTextFieldStunden65 = new javax.swing.JTextField();
+        jStunden30 = new javax.swing.JTextField();
         jPanelSFr4 = new javax.swing.JPanel();
-        jTextFieldStunden45 = new javax.swing.JTextField();
+        jStunden28 = new javax.swing.JTextField();
         jPanelSFr2 = new javax.swing.JPanel();
-        jTextFieldStunden25 = new javax.swing.JTextField();
+        jStunden26 = new javax.swing.JTextField();
         jPanelSFr3 = new javax.swing.JPanel();
-        jTextFieldStunden35 = new javax.swing.JTextField();
+        jStunden27 = new javax.swing.JTextField();
         jPanelSFr5 = new javax.swing.JPanel();
-        jTextFieldStunden55 = new javax.swing.JTextField();
+        jStunden29 = new javax.swing.JTextField();
         jPanelSFr1 = new javax.swing.JPanel();
-        jTextFieldStunden15 = new javax.swing.JTextField();
+        jStunden25 = new javax.swing.JTextField();
         jTextFieldGSFr = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jButtonZurueck = new javax.swing.JButton();
@@ -286,8 +308,8 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelMo1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField11.setBackground(jPanelMo1.getBackground());
-        jTextField11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu1.setBackground(jPanelMo1.getBackground());
+        jDocu1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMo1Layout = new javax.swing.GroupLayout(jPanelMo1);
         jPanelMo1.setLayout(jPanelMo1Layout);
@@ -295,22 +317,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jDocu1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelMo1Layout.setVerticalGroup(
             jPanelMo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMo3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField31.setBackground(jPanelMo1.getBackground());
-        jTextField31.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu3.setBackground(jPanelMo1.getBackground());
+        jDocu3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMo3Layout = new javax.swing.GroupLayout(jPanelMo3);
         jPanelMo3.setLayout(jPanelMo3Layout);
@@ -318,22 +340,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField31)
+                .addComponent(jDocu3)
                 .addContainerGap())
         );
         jPanelMo3Layout.setVerticalGroup(
             jPanelMo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMo5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMo5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField51.setBackground(jPanelMo1.getBackground());
-        jTextField51.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu5.setBackground(jPanelMo1.getBackground());
+        jDocu5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMo5Layout = new javax.swing.GroupLayout(jPanelMo5);
         jPanelMo5.setLayout(jPanelMo5Layout);
@@ -341,22 +363,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField51)
+                .addComponent(jDocu5)
                 .addContainerGap())
         );
         jPanelMo5Layout.setVerticalGroup(
             jPanelMo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMo4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMo4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField41.setBackground(jPanelMo1.getBackground());
-        jTextField41.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu4.setBackground(jPanelMo1.getBackground());
+        jDocu4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMo4Layout = new javax.swing.GroupLayout(jPanelMo4);
         jPanelMo4.setLayout(jPanelMo4Layout);
@@ -364,22 +386,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField41)
+                .addComponent(jDocu4)
                 .addContainerGap())
         );
         jPanelMo4Layout.setVerticalGroup(
             jPanelMo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMo2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField21.setBackground(jPanelMo1.getBackground());
-        jTextField21.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu2.setBackground(jPanelMo1.getBackground());
+        jDocu2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMo2Layout = new javax.swing.GroupLayout(jPanelMo2);
         jPanelMo2.setLayout(jPanelMo2Layout);
@@ -387,22 +409,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField21)
+                .addComponent(jDocu2)
                 .addContainerGap())
         );
         jPanelMo2Layout.setVerticalGroup(
             jPanelMo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMo7.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMo7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField61.setBackground(jPanelMo1.getBackground());
-        jTextField61.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu6.setBackground(jPanelMo1.getBackground());
+        jDocu6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMo7Layout = new javax.swing.GroupLayout(jPanelMo7);
         jPanelMo7.setLayout(jPanelMo7Layout);
@@ -410,14 +432,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMo7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField61)
+                .addComponent(jDocu6)
                 .addContainerGap())
         );
         jPanelMo7Layout.setVerticalGroup(
             jPanelMo7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMo7Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -459,9 +481,9 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelSM6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSM6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden61.setBackground(jPanelSM6.getBackground());
-        jTextFieldStunden61.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden61.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden6.setBackground(jPanelSM6.getBackground());
+        jStunden6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSM6Layout = new javax.swing.GroupLayout(jPanelSM6);
         jPanelSM6.setLayout(jPanelSM6Layout);
@@ -469,23 +491,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSM6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden61)
+                .addComponent(jStunden6)
                 .addContainerGap())
         );
         jPanelSM6Layout.setVerticalGroup(
             jPanelSM6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSM4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSM4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden41.setBackground(jPanelSM4.getBackground());
-        jTextFieldStunden41.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden41.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden4.setBackground(jPanelSM4.getBackground());
+        jStunden4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSM4Layout = new javax.swing.GroupLayout(jPanelSM4);
         jPanelSM4.setLayout(jPanelSM4Layout);
@@ -493,23 +515,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSM4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden41)
+                .addComponent(jStunden4)
                 .addContainerGap())
         );
         jPanelSM4Layout.setVerticalGroup(
             jPanelSM4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSM2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSM2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden21.setBackground(jPanelSM2.getBackground());
-        jTextFieldStunden21.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden21.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden2.setBackground(jPanelSM2.getBackground());
+        jStunden2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSM2Layout = new javax.swing.GroupLayout(jPanelSM2);
         jPanelSM2.setLayout(jPanelSM2Layout);
@@ -517,23 +539,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSM2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden21)
+                .addComponent(jStunden2)
                 .addContainerGap())
         );
         jPanelSM2Layout.setVerticalGroup(
             jPanelSM2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSM3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSM3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden31.setBackground(jPanelSM3.getBackground());
-        jTextFieldStunden31.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden31.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden3.setBackground(jPanelSM3.getBackground());
+        jStunden3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSM3Layout = new javax.swing.GroupLayout(jPanelSM3);
         jPanelSM3.setLayout(jPanelSM3Layout);
@@ -541,23 +563,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSM3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden31)
+                .addComponent(jStunden3)
                 .addContainerGap())
         );
         jPanelSM3Layout.setVerticalGroup(
             jPanelSM3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSM5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSM5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden51.setBackground(jPanelSM5.getBackground());
-        jTextFieldStunden51.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden51.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden5.setBackground(jPanelSM5.getBackground());
+        jStunden5.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSM5Layout = new javax.swing.GroupLayout(jPanelSM5);
         jPanelSM5.setLayout(jPanelSM5Layout);
@@ -565,24 +587,24 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSM5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden51)
+                .addComponent(jStunden5)
                 .addContainerGap())
         );
         jPanelSM5Layout.setVerticalGroup(
             jPanelSM5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSM1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSM1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden11.setBackground(jPanelSM1.getBackground());
-        jTextFieldStunden11.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden11.setToolTipText("");
-        jTextFieldStunden11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden1.setBackground(jPanelSM1.getBackground());
+        jStunden1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden1.setToolTipText("");
+        jStunden1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSM1Layout = new javax.swing.GroupLayout(jPanelSM1);
         jPanelSM1.setLayout(jPanelSM1Layout);
@@ -590,14 +612,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSM1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden11, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addComponent(jStunden1, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelSM1Layout.setVerticalGroup(
             jPanelSM1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSM1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -639,8 +661,8 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelDi1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDi1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField12.setBackground(jPanelMo1.getBackground());
-        jTextField12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu7.setBackground(jPanelMo1.getBackground());
+        jDocu7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDi1Layout = new javax.swing.GroupLayout(jPanelDi1);
         jPanelDi1.setLayout(jPanelDi1Layout);
@@ -648,22 +670,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jDocu7, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelDi1Layout.setVerticalGroup(
             jPanelDi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDi3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDi3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField32.setBackground(jPanelMo1.getBackground());
-        jTextField32.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu9.setBackground(jPanelMo1.getBackground());
+        jDocu9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDi3Layout = new javax.swing.GroupLayout(jPanelDi3);
         jPanelDi3.setLayout(jPanelDi3Layout);
@@ -671,22 +693,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField32)
+                .addComponent(jDocu9)
                 .addContainerGap())
         );
         jPanelDi3Layout.setVerticalGroup(
             jPanelDi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDi5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDi5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField52.setBackground(jPanelMo1.getBackground());
-        jTextField52.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu11.setBackground(jPanelMo1.getBackground());
+        jDocu11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDi5Layout = new javax.swing.GroupLayout(jPanelDi5);
         jPanelDi5.setLayout(jPanelDi5Layout);
@@ -694,22 +716,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDi5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField52)
+                .addComponent(jDocu11)
                 .addContainerGap())
         );
         jPanelDi5Layout.setVerticalGroup(
             jPanelDi5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDi4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDi4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField42.setBackground(jPanelMo1.getBackground());
-        jTextField42.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu10.setBackground(jPanelMo1.getBackground());
+        jDocu10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDi4Layout = new javax.swing.GroupLayout(jPanelDi4);
         jPanelDi4.setLayout(jPanelDi4Layout);
@@ -717,22 +739,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField42)
+                .addComponent(jDocu10)
                 .addContainerGap())
         );
         jPanelDi4Layout.setVerticalGroup(
             jPanelDi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDi2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDi2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField22.setBackground(jPanelMo1.getBackground());
-        jTextField22.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu8.setBackground(jPanelMo1.getBackground());
+        jDocu8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDi2Layout = new javax.swing.GroupLayout(jPanelDi2);
         jPanelDi2.setLayout(jPanelDi2Layout);
@@ -740,22 +762,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField22)
+                .addComponent(jDocu8)
                 .addContainerGap())
         );
         jPanelDi2Layout.setVerticalGroup(
             jPanelDi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDi6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDi6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField62.setBackground(jPanelMo1.getBackground());
-        jTextField62.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu12.setBackground(jPanelMo1.getBackground());
+        jDocu12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDi6Layout = new javax.swing.GroupLayout(jPanelDi6);
         jPanelDi6.setLayout(jPanelDi6Layout);
@@ -763,14 +785,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDi6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField62)
+                .addComponent(jDocu12)
                 .addContainerGap())
         );
         jPanelDi6Layout.setVerticalGroup(
             jPanelDi6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDi6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -812,9 +834,9 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelSD6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSD6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden62.setBackground(jPanelSM6.getBackground());
-        jTextFieldStunden62.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden62.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden12.setBackground(jPanelSM6.getBackground());
+        jStunden12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSD6Layout = new javax.swing.GroupLayout(jPanelSD6);
         jPanelSD6.setLayout(jPanelSD6Layout);
@@ -822,23 +844,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSD6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden62)
+                .addComponent(jStunden12)
                 .addContainerGap())
         );
         jPanelSD6Layout.setVerticalGroup(
             jPanelSD6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSD4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSD4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden42.setBackground(jPanelSM4.getBackground());
-        jTextFieldStunden42.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden42.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden10.setBackground(jPanelSM4.getBackground());
+        jStunden10.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSD4Layout = new javax.swing.GroupLayout(jPanelSD4);
         jPanelSD4.setLayout(jPanelSD4Layout);
@@ -846,23 +868,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSD4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden42)
+                .addComponent(jStunden10)
                 .addContainerGap())
         );
         jPanelSD4Layout.setVerticalGroup(
             jPanelSD4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSD2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSD2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden22.setBackground(jPanelSM2.getBackground());
-        jTextFieldStunden22.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden22.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden8.setBackground(jPanelSM2.getBackground());
+        jStunden8.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSD2Layout = new javax.swing.GroupLayout(jPanelSD2);
         jPanelSD2.setLayout(jPanelSD2Layout);
@@ -870,23 +892,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden22)
+                .addComponent(jStunden8)
                 .addContainerGap())
         );
         jPanelSD2Layout.setVerticalGroup(
             jPanelSD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSD3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSD3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden32.setBackground(jPanelSM3.getBackground());
-        jTextFieldStunden32.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden32.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden9.setBackground(jPanelSM3.getBackground());
+        jStunden9.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSD3Layout = new javax.swing.GroupLayout(jPanelSD3);
         jPanelSD3.setLayout(jPanelSD3Layout);
@@ -894,23 +916,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSD3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden32)
+                .addComponent(jStunden9)
                 .addContainerGap())
         );
         jPanelSD3Layout.setVerticalGroup(
             jPanelSD3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSD5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSD5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden52.setBackground(jPanelSM5.getBackground());
-        jTextFieldStunden52.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden52.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden11.setBackground(jPanelSM5.getBackground());
+        jStunden11.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSD5Layout = new javax.swing.GroupLayout(jPanelSD5);
         jPanelSD5.setLayout(jPanelSD5Layout);
@@ -918,24 +940,24 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSD5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden52)
+                .addComponent(jStunden11)
                 .addContainerGap())
         );
         jPanelSD5Layout.setVerticalGroup(
             jPanelSD5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSD1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSD1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden12.setBackground(jPanelSM1.getBackground());
-        jTextFieldStunden12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden12.setToolTipText("");
-        jTextFieldStunden12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden7.setBackground(jPanelSM1.getBackground());
+        jStunden7.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden7.setToolTipText("");
+        jStunden7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSD1Layout = new javax.swing.GroupLayout(jPanelSD1);
         jPanelSD1.setLayout(jPanelSD1Layout);
@@ -943,14 +965,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden12, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addComponent(jStunden7, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelSD1Layout.setVerticalGroup(
             jPanelSD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSD1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -995,8 +1017,8 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelMi1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMi1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField13.setBackground(jPanelMo1.getBackground());
-        jTextField13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu13.setBackground(jPanelMo1.getBackground());
+        jDocu13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMi1Layout = new javax.swing.GroupLayout(jPanelMi1);
         jPanelMi1.setLayout(jPanelMi1Layout);
@@ -1004,22 +1026,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jDocu13, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelMi1Layout.setVerticalGroup(
             jPanelMi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMi3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMi3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField33.setBackground(jPanelMo1.getBackground());
-        jTextField33.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu15.setBackground(jPanelMo1.getBackground());
+        jDocu15.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMi3Layout = new javax.swing.GroupLayout(jPanelMi3);
         jPanelMi3.setLayout(jPanelMi3Layout);
@@ -1027,22 +1049,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField33)
+                .addComponent(jDocu15)
                 .addContainerGap())
         );
         jPanelMi3Layout.setVerticalGroup(
             jPanelMi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMi5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMi5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField53.setBackground(jPanelMo1.getBackground());
-        jTextField53.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu17.setBackground(jPanelMo1.getBackground());
+        jDocu17.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMi5Layout = new javax.swing.GroupLayout(jPanelMi5);
         jPanelMi5.setLayout(jPanelMi5Layout);
@@ -1050,22 +1072,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMi5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField53)
+                .addComponent(jDocu17)
                 .addContainerGap())
         );
         jPanelMi5Layout.setVerticalGroup(
             jPanelMi5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMi4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMi4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField43.setBackground(jPanelMo1.getBackground());
-        jTextField43.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu16.setBackground(jPanelMo1.getBackground());
+        jDocu16.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMi4Layout = new javax.swing.GroupLayout(jPanelMi4);
         jPanelMi4.setLayout(jPanelMi4Layout);
@@ -1073,22 +1095,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField43)
+                .addComponent(jDocu16)
                 .addContainerGap())
         );
         jPanelMi4Layout.setVerticalGroup(
             jPanelMi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMi2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMi2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField23.setBackground(jPanelMo1.getBackground());
-        jTextField23.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu14.setBackground(jPanelMo1.getBackground());
+        jDocu14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMi2Layout = new javax.swing.GroupLayout(jPanelMi2);
         jPanelMi2.setLayout(jPanelMi2Layout);
@@ -1096,22 +1118,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField23)
+                .addComponent(jDocu14)
                 .addContainerGap())
         );
         jPanelMi2Layout.setVerticalGroup(
             jPanelMi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelMi6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelMi6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField63.setBackground(jPanelMo1.getBackground());
-        jTextField63.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu18.setBackground(jPanelMo1.getBackground());
+        jDocu18.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelMi6Layout = new javax.swing.GroupLayout(jPanelMi6);
         jPanelMi6.setLayout(jPanelMi6Layout);
@@ -1119,14 +1141,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelMi6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField63)
+                .addComponent(jDocu18)
                 .addContainerGap())
         );
         jPanelMi6Layout.setVerticalGroup(
             jPanelMi6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMi6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -1168,9 +1190,9 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelSMi6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSMi6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden63.setBackground(jPanelSM6.getBackground());
-        jTextFieldStunden63.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden63.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden18.setBackground(jPanelSM6.getBackground());
+        jStunden18.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden18.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSMi6Layout = new javax.swing.GroupLayout(jPanelSMi6);
         jPanelSMi6.setLayout(jPanelSMi6Layout);
@@ -1178,23 +1200,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSMi6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden63)
+                .addComponent(jStunden18)
                 .addContainerGap())
         );
         jPanelSMi6Layout.setVerticalGroup(
             jPanelSMi6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSMi4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSMi4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden43.setBackground(jPanelSM4.getBackground());
-        jTextFieldStunden43.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden43.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden16.setBackground(jPanelSM4.getBackground());
+        jStunden16.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden16.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSMi4Layout = new javax.swing.GroupLayout(jPanelSMi4);
         jPanelSMi4.setLayout(jPanelSMi4Layout);
@@ -1202,23 +1224,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSMi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden43)
+                .addComponent(jStunden16)
                 .addContainerGap())
         );
         jPanelSMi4Layout.setVerticalGroup(
             jPanelSMi4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSMi2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSMi2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden23.setBackground(jPanelSM2.getBackground());
-        jTextFieldStunden23.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden23.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden14.setBackground(jPanelSM2.getBackground());
+        jStunden14.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSMi2Layout = new javax.swing.GroupLayout(jPanelSMi2);
         jPanelSMi2.setLayout(jPanelSMi2Layout);
@@ -1226,23 +1248,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSMi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden23)
+                .addComponent(jStunden14)
                 .addContainerGap())
         );
         jPanelSMi2Layout.setVerticalGroup(
             jPanelSMi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSMi3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSMi3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden33.setBackground(jPanelSM3.getBackground());
-        jTextFieldStunden33.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden33.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden15.setBackground(jPanelSM3.getBackground());
+        jStunden15.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden15.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSMi3Layout = new javax.swing.GroupLayout(jPanelSMi3);
         jPanelSMi3.setLayout(jPanelSMi3Layout);
@@ -1250,23 +1272,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSMi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden33)
+                .addComponent(jStunden15)
                 .addContainerGap())
         );
         jPanelSMi3Layout.setVerticalGroup(
             jPanelSMi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSMi5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSMi5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden53.setBackground(jPanelSM5.getBackground());
-        jTextFieldStunden53.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden53.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden17.setBackground(jPanelSM5.getBackground());
+        jStunden17.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden17.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSMi5Layout = new javax.swing.GroupLayout(jPanelSMi5);
         jPanelSMi5.setLayout(jPanelSMi5Layout);
@@ -1274,24 +1296,24 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSMi5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden53)
+                .addComponent(jStunden17)
                 .addContainerGap())
         );
         jPanelSMi5Layout.setVerticalGroup(
             jPanelSMi5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSMi1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSMi1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden13.setBackground(jPanelSM1.getBackground());
-        jTextFieldStunden13.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden13.setToolTipText("");
-        jTextFieldStunden13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden13.setBackground(jPanelSM1.getBackground());
+        jStunden13.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden13.setToolTipText("");
+        jStunden13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSMi1Layout = new javax.swing.GroupLayout(jPanelSMi1);
         jPanelSMi1.setLayout(jPanelSMi1Layout);
@@ -1299,14 +1321,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSMi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden13, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addComponent(jStunden13, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelSMi1Layout.setVerticalGroup(
             jPanelSMi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSMi1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -1351,8 +1373,8 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelDo1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField14.setBackground(jPanelMo1.getBackground());
-        jTextField14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu19.setBackground(jPanelMo1.getBackground());
+        jDocu19.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDo1Layout = new javax.swing.GroupLayout(jPanelDo1);
         jPanelDo1.setLayout(jPanelDo1Layout);
@@ -1360,22 +1382,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jDocu19, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelDo1Layout.setVerticalGroup(
             jPanelDo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDo3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField34.setBackground(jPanelMo1.getBackground());
-        jTextField34.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu21.setBackground(jPanelMo1.getBackground());
+        jDocu21.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDo3Layout = new javax.swing.GroupLayout(jPanelDo3);
         jPanelDo3.setLayout(jPanelDo3Layout);
@@ -1383,22 +1405,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField34)
+                .addComponent(jDocu21)
                 .addContainerGap())
         );
         jPanelDo3Layout.setVerticalGroup(
             jPanelDo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDo5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDo5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField54.setBackground(jPanelMo1.getBackground());
-        jTextField54.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu23.setBackground(jPanelMo1.getBackground());
+        jDocu23.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDo5Layout = new javax.swing.GroupLayout(jPanelDo5);
         jPanelDo5.setLayout(jPanelDo5Layout);
@@ -1406,22 +1428,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField54)
+                .addComponent(jDocu23)
                 .addContainerGap())
         );
         jPanelDo5Layout.setVerticalGroup(
             jPanelDo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDo4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDo4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField44.setBackground(jPanelMo1.getBackground());
-        jTextField44.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu22.setBackground(jPanelMo1.getBackground());
+        jDocu22.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDo4Layout = new javax.swing.GroupLayout(jPanelDo4);
         jPanelDo4.setLayout(jPanelDo4Layout);
@@ -1429,22 +1451,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField44)
+                .addComponent(jDocu22)
                 .addContainerGap())
         );
         jPanelDo4Layout.setVerticalGroup(
             jPanelDo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDo2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField24.setBackground(jPanelMo1.getBackground());
-        jTextField24.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu20.setBackground(jPanelMo1.getBackground());
+        jDocu20.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDo2Layout = new javax.swing.GroupLayout(jPanelDo2);
         jPanelDo2.setLayout(jPanelDo2Layout);
@@ -1452,22 +1474,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField24)
+                .addComponent(jDocu20)
                 .addContainerGap())
         );
         jPanelDo2Layout.setVerticalGroup(
             jPanelDo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelDo6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDo6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField64.setBackground(jPanelMo1.getBackground());
-        jTextField64.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu24.setBackground(jPanelMo1.getBackground());
+        jDocu24.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelDo6Layout = new javax.swing.GroupLayout(jPanelDo6);
         jPanelDo6.setLayout(jPanelDo6Layout);
@@ -1475,14 +1497,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelDo6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField64)
+                .addComponent(jDocu24)
                 .addContainerGap())
         );
         jPanelDo6Layout.setVerticalGroup(
             jPanelDo6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDo6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -1524,9 +1546,9 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelSDo6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSDo6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden64.setBackground(jPanelSM6.getBackground());
-        jTextFieldStunden64.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden64.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden24.setBackground(jPanelSM6.getBackground());
+        jStunden24.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden24.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSDo6Layout = new javax.swing.GroupLayout(jPanelSDo6);
         jPanelSDo6.setLayout(jPanelSDo6Layout);
@@ -1534,23 +1556,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSDo6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden64)
+                .addComponent(jStunden24)
                 .addContainerGap())
         );
         jPanelSDo6Layout.setVerticalGroup(
             jPanelSDo6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSDo4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSDo4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden44.setBackground(jPanelSM4.getBackground());
-        jTextFieldStunden44.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden44.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden22.setBackground(jPanelSM4.getBackground());
+        jStunden22.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden22.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSDo4Layout = new javax.swing.GroupLayout(jPanelSDo4);
         jPanelSDo4.setLayout(jPanelSDo4Layout);
@@ -1558,23 +1580,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSDo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden44)
+                .addComponent(jStunden22)
                 .addContainerGap())
         );
         jPanelSDo4Layout.setVerticalGroup(
             jPanelSDo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSDo2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSDo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden24.setBackground(jPanelSM2.getBackground());
-        jTextFieldStunden24.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden24.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden20.setBackground(jPanelSM2.getBackground());
+        jStunden20.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden20.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSDo2Layout = new javax.swing.GroupLayout(jPanelSDo2);
         jPanelSDo2.setLayout(jPanelSDo2Layout);
@@ -1582,23 +1604,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSDo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden24)
+                .addComponent(jStunden20)
                 .addContainerGap())
         );
         jPanelSDo2Layout.setVerticalGroup(
             jPanelSDo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSDo3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSDo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden34.setBackground(jPanelSM3.getBackground());
-        jTextFieldStunden34.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden34.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden21.setBackground(jPanelSM3.getBackground());
+        jStunden21.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden21.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSDo3Layout = new javax.swing.GroupLayout(jPanelSDo3);
         jPanelSDo3.setLayout(jPanelSDo3Layout);
@@ -1606,23 +1628,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSDo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden34)
+                .addComponent(jStunden21)
                 .addContainerGap())
         );
         jPanelSDo3Layout.setVerticalGroup(
             jPanelSDo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSDo5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSDo5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden54.setBackground(jPanelSM5.getBackground());
-        jTextFieldStunden54.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden54.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden23.setBackground(jPanelSM5.getBackground());
+        jStunden23.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden23.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSDo5Layout = new javax.swing.GroupLayout(jPanelSDo5);
         jPanelSDo5.setLayout(jPanelSDo5Layout);
@@ -1630,24 +1652,24 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSDo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden54)
+                .addComponent(jStunden23)
                 .addContainerGap())
         );
         jPanelSDo5Layout.setVerticalGroup(
             jPanelSDo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSDo1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSDo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden14.setBackground(jPanelSM1.getBackground());
-        jTextFieldStunden14.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden14.setToolTipText("");
-        jTextFieldStunden14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden19.setBackground(jPanelSM1.getBackground());
+        jStunden19.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden19.setToolTipText("");
+        jStunden19.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSDo1Layout = new javax.swing.GroupLayout(jPanelSDo1);
         jPanelSDo1.setLayout(jPanelSDo1Layout);
@@ -1655,14 +1677,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSDo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden14, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addComponent(jStunden19, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelSDo1Layout.setVerticalGroup(
             jPanelSDo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSDo1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -1707,8 +1729,8 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelFr1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelFr1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField15.setBackground(jPanelMo1.getBackground());
-        jTextField15.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu25.setBackground(jPanelMo1.getBackground());
+        jDocu25.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelFr1Layout = new javax.swing.GroupLayout(jPanelFr1);
         jPanelFr1.setLayout(jPanelFr1Layout);
@@ -1716,22 +1738,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelFr1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jDocu25, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelFr1Layout.setVerticalGroup(
             jPanelFr1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelFr3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelFr3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField35.setBackground(jPanelMo1.getBackground());
-        jTextField35.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu27.setBackground(jPanelMo1.getBackground());
+        jDocu27.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelFr3Layout = new javax.swing.GroupLayout(jPanelFr3);
         jPanelFr3.setLayout(jPanelFr3Layout);
@@ -1739,22 +1761,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelFr3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField35)
+                .addComponent(jDocu27)
                 .addContainerGap())
         );
         jPanelFr3Layout.setVerticalGroup(
             jPanelFr3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelFr5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelFr5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField55.setBackground(jPanelMo1.getBackground());
-        jTextField55.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu29.setBackground(jPanelMo1.getBackground());
+        jDocu29.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelFr5Layout = new javax.swing.GroupLayout(jPanelFr5);
         jPanelFr5.setLayout(jPanelFr5Layout);
@@ -1762,22 +1784,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelFr5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField55)
+                .addComponent(jDocu29)
                 .addContainerGap())
         );
         jPanelFr5Layout.setVerticalGroup(
             jPanelFr5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelFr4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelFr4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField45.setBackground(jPanelMo1.getBackground());
-        jTextField45.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu28.setBackground(jPanelMo1.getBackground());
+        jDocu28.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelFr4Layout = new javax.swing.GroupLayout(jPanelFr4);
         jPanelFr4.setLayout(jPanelFr4Layout);
@@ -1785,22 +1807,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelFr4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField45)
+                .addComponent(jDocu28)
                 .addContainerGap())
         );
         jPanelFr4Layout.setVerticalGroup(
             jPanelFr4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelFr2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelFr2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField25.setBackground(jPanelMo1.getBackground());
-        jTextField25.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu26.setBackground(jPanelMo1.getBackground());
+        jDocu26.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelFr2Layout = new javax.swing.GroupLayout(jPanelFr2);
         jPanelFr2.setLayout(jPanelFr2Layout);
@@ -1808,22 +1830,22 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelFr2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField25)
+                .addComponent(jDocu26)
                 .addContainerGap())
         );
         jPanelFr2Layout.setVerticalGroup(
             jPanelFr2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelFr6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelFr6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField65.setBackground(jPanelMo1.getBackground());
-        jTextField65.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jDocu30.setBackground(jPanelMo1.getBackground());
+        jDocu30.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelFr6Layout = new javax.swing.GroupLayout(jPanelFr6);
         jPanelFr6.setLayout(jPanelFr6Layout);
@@ -1831,14 +1853,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelFr6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField65)
+                .addComponent(jDocu30)
                 .addContainerGap())
         );
         jPanelFr6Layout.setVerticalGroup(
             jPanelFr6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFr6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDocu30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -1880,9 +1902,9 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanelSFr6.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSFr6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden65.setBackground(jPanelSM6.getBackground());
-        jTextFieldStunden65.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden65.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden30.setBackground(jPanelSM6.getBackground());
+        jStunden30.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden30.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSFr6Layout = new javax.swing.GroupLayout(jPanelSFr6);
         jPanelSFr6.setLayout(jPanelSFr6Layout);
@@ -1890,23 +1912,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSFr6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden65)
+                .addComponent(jStunden30)
                 .addContainerGap())
         );
         jPanelSFr6Layout.setVerticalGroup(
             jPanelSFr6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSFr4.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSFr4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden45.setBackground(jPanelSM4.getBackground());
-        jTextFieldStunden45.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden45.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden28.setBackground(jPanelSM4.getBackground());
+        jStunden28.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden28.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSFr4Layout = new javax.swing.GroupLayout(jPanelSFr4);
         jPanelSFr4.setLayout(jPanelSFr4Layout);
@@ -1914,23 +1936,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSFr4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden45)
+                .addComponent(jStunden28)
                 .addContainerGap())
         );
         jPanelSFr4Layout.setVerticalGroup(
             jPanelSFr4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSFr2.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSFr2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden25.setBackground(jPanelSM2.getBackground());
-        jTextFieldStunden25.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden25.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden26.setBackground(jPanelSM2.getBackground());
+        jStunden26.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden26.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSFr2Layout = new javax.swing.GroupLayout(jPanelSFr2);
         jPanelSFr2.setLayout(jPanelSFr2Layout);
@@ -1938,23 +1960,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSFr2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden25)
+                .addComponent(jStunden26)
                 .addContainerGap())
         );
         jPanelSFr2Layout.setVerticalGroup(
             jPanelSFr2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSFr3.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSFr3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden35.setBackground(jPanelSM3.getBackground());
-        jTextFieldStunden35.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden35.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden27.setBackground(jPanelSM3.getBackground());
+        jStunden27.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden27.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSFr3Layout = new javax.swing.GroupLayout(jPanelSFr3);
         jPanelSFr3.setLayout(jPanelSFr3Layout);
@@ -1962,23 +1984,23 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSFr3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden35)
+                .addComponent(jStunden27)
                 .addContainerGap())
         );
         jPanelSFr3Layout.setVerticalGroup(
             jPanelSFr3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSFr5.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSFr5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden55.setBackground(jPanelSM5.getBackground());
-        jTextFieldStunden55.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden55.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden29.setBackground(jPanelSM5.getBackground());
+        jStunden29.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden29.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSFr5Layout = new javax.swing.GroupLayout(jPanelSFr5);
         jPanelSFr5.setLayout(jPanelSFr5Layout);
@@ -1986,24 +2008,24 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSFr5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden55)
+                .addComponent(jStunden29)
                 .addContainerGap())
         );
         jPanelSFr5Layout.setVerticalGroup(
             jPanelSFr5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr5Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
         jPanelSFr1.setBackground(new java.awt.Color(255, 204, 204));
         jPanelSFr1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldStunden15.setBackground(jPanelSM1.getBackground());
-        jTextFieldStunden15.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldStunden15.setToolTipText("");
-        jTextFieldStunden15.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jStunden25.setBackground(jPanelSM1.getBackground());
+        jStunden25.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jStunden25.setToolTipText("");
+        jStunden25.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanelSFr1Layout = new javax.swing.GroupLayout(jPanelSFr1);
         jPanelSFr1.setLayout(jPanelSFr1Layout);
@@ -2011,14 +2033,14 @@ public class EingabeUI extends javax.swing.JFrame {
             jPanelSFr1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldStunden15, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addComponent(jStunden25, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelSFr1Layout.setVerticalGroup(
             jPanelSFr1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSFr1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jTextFieldStunden15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStunden25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -2063,6 +2085,11 @@ public class EingabeUI extends javax.swing.JFrame {
         jButtonZurueck.setText("<-- zurück");
 
         jButtonSpeichern.setText("speichern");
+        jButtonSpeichern.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSpeichernActionPerformed(evt);
+            }
+        });
 
         jButtonVor.setText("vor -->");
 
@@ -2278,8 +2305,12 @@ public class EingabeUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDatum2ActionPerformed
 
     private void jTextFieldDatum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatum1ActionPerformed
-        fillWithValues();
+
     }//GEN-LAST:event_jTextFieldDatum1ActionPerformed
+
+    private void jButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSpeichernActionPerformed
+
+    }//GEN-LAST:event_jButtonSpeichernActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2316,10 +2347,42 @@ public class EingabeUI extends javax.swing.JFrame {
         });
     }
 
+    private javax.swing.JTextField[] txtField;
+    private javax.swing.JTextField[] stdField;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSpeichern;
     private javax.swing.JButton jButtonVor;
     private javax.swing.JButton jButtonZurueck;
+    private javax.swing.JTextField jDocu1;
+    private javax.swing.JTextField jDocu10;
+    private javax.swing.JTextField jDocu11;
+    private javax.swing.JTextField jDocu12;
+    private javax.swing.JTextField jDocu13;
+    private javax.swing.JTextField jDocu14;
+    private javax.swing.JTextField jDocu15;
+    private javax.swing.JTextField jDocu16;
+    private javax.swing.JTextField jDocu17;
+    private javax.swing.JTextField jDocu18;
+    private javax.swing.JTextField jDocu19;
+    private javax.swing.JTextField jDocu2;
+    private javax.swing.JTextField jDocu20;
+    private javax.swing.JTextField jDocu21;
+    private javax.swing.JTextField jDocu22;
+    private javax.swing.JTextField jDocu23;
+    private javax.swing.JTextField jDocu24;
+    private javax.swing.JTextField jDocu25;
+    private javax.swing.JTextField jDocu26;
+    private javax.swing.JTextField jDocu27;
+    private javax.swing.JTextField jDocu28;
+    private javax.swing.JTextField jDocu29;
+    private javax.swing.JTextField jDocu3;
+    private javax.swing.JTextField jDocu30;
+    private javax.swing.JTextField jDocu4;
+    private javax.swing.JTextField jDocu5;
+    private javax.swing.JTextField jDocu6;
+    private javax.swing.JTextField jDocu7;
+    private javax.swing.JTextField jDocu8;
+    private javax.swing.JTextField jDocu9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2403,39 +2466,39 @@ public class EingabeUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelStundenFreitag;
     private javax.swing.JPanel jPanelStundenMittwoch;
     private javax.swing.JPanel jPanelStundenMontag;
+    private javax.swing.JTextField jStunden1;
+    private javax.swing.JTextField jStunden10;
+    private javax.swing.JTextField jStunden11;
+    private javax.swing.JTextField jStunden12;
+    private javax.swing.JTextField jStunden13;
+    private javax.swing.JTextField jStunden14;
+    private javax.swing.JTextField jStunden15;
+    private javax.swing.JTextField jStunden16;
+    private javax.swing.JTextField jStunden17;
+    private javax.swing.JTextField jStunden18;
+    private javax.swing.JTextField jStunden19;
+    private javax.swing.JTextField jStunden2;
+    private javax.swing.JTextField jStunden20;
+    private javax.swing.JTextField jStunden21;
+    private javax.swing.JTextField jStunden22;
+    private javax.swing.JTextField jStunden23;
+    private javax.swing.JTextField jStunden24;
+    private javax.swing.JTextField jStunden25;
+    private javax.swing.JTextField jStunden26;
+    private javax.swing.JTextField jStunden27;
+    private javax.swing.JTextField jStunden28;
+    private javax.swing.JTextField jStunden29;
+    private javax.swing.JTextField jStunden3;
+    private javax.swing.JTextField jStunden30;
+    private javax.swing.JTextField jStunden4;
+    private javax.swing.JTextField jStunden5;
+    private javax.swing.JTextField jStunden6;
+    private javax.swing.JTextField jStunden7;
+    private javax.swing.JTextField jStunden8;
+    private javax.swing.JTextField jStunden9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField41;
-    private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField43;
-    private javax.swing.JTextField jTextField44;
-    private javax.swing.JTextField jTextField45;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
-    private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField61;
-    private javax.swing.JTextField jTextField62;
-    private javax.swing.JTextField jTextField63;
-    private javax.swing.JTextField jTextField64;
-    private javax.swing.JTextField jTextField65;
     private javax.swing.JTextField jTextFieldDatum1;
     private javax.swing.JTextField jTextFieldDatum2;
     private javax.swing.JTextField jTextFieldGSDi;
@@ -2444,35 +2507,5 @@ public class EingabeUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldGSMi;
     private javax.swing.JTextField jTextFieldGSMo;
     private javax.swing.JTextField jTextFieldGesamtStunden;
-    private javax.swing.JTextField jTextFieldStunden11;
-    private javax.swing.JTextField jTextFieldStunden12;
-    private javax.swing.JTextField jTextFieldStunden13;
-    private javax.swing.JTextField jTextFieldStunden14;
-    private javax.swing.JTextField jTextFieldStunden15;
-    private javax.swing.JTextField jTextFieldStunden21;
-    private javax.swing.JTextField jTextFieldStunden22;
-    private javax.swing.JTextField jTextFieldStunden23;
-    private javax.swing.JTextField jTextFieldStunden24;
-    private javax.swing.JTextField jTextFieldStunden25;
-    private javax.swing.JTextField jTextFieldStunden31;
-    private javax.swing.JTextField jTextFieldStunden32;
-    private javax.swing.JTextField jTextFieldStunden33;
-    private javax.swing.JTextField jTextFieldStunden34;
-    private javax.swing.JTextField jTextFieldStunden35;
-    private javax.swing.JTextField jTextFieldStunden41;
-    private javax.swing.JTextField jTextFieldStunden42;
-    private javax.swing.JTextField jTextFieldStunden43;
-    private javax.swing.JTextField jTextFieldStunden44;
-    private javax.swing.JTextField jTextFieldStunden45;
-    private javax.swing.JTextField jTextFieldStunden51;
-    private javax.swing.JTextField jTextFieldStunden52;
-    private javax.swing.JTextField jTextFieldStunden53;
-    private javax.swing.JTextField jTextFieldStunden54;
-    private javax.swing.JTextField jTextFieldStunden55;
-    private javax.swing.JTextField jTextFieldStunden61;
-    private javax.swing.JTextField jTextFieldStunden62;
-    private javax.swing.JTextField jTextFieldStunden63;
-    private javax.swing.JTextField jTextFieldStunden64;
-    private javax.swing.JTextField jTextFieldStunden65;
     // End of variables declaration//GEN-END:variables
 }

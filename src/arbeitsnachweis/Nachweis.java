@@ -19,13 +19,13 @@ import jdk.nashorn.internal.codegen.CompilerConstants;
  * @author fonzi
  */
 public class Nachweis {
-    
+
     // Konnektoren DB
     static Connection con = null;
     static PreparedStatement pst = null;
     static Statement st = null;
     static ResultSet rst = null;
-    
+
     // Objekt Variablen
     private int id;
     private int nr;
@@ -33,7 +33,7 @@ public class Nachweis {
     private String datum;
     private int jahr;
     private ArrayList<Nachweis> nachweisL;
-    
+
     // Konstruktor
     public Nachweis(int id, int nr, int benutzer_id, String datum, int jahr) {
         this.id = id;
@@ -55,8 +55,7 @@ public class Nachweis {
         this.nr = nr;
         this.benutzer_id = benutzer_id;
     }
-    
-        
+
     // Getter
     public int getId() {
         return id;
@@ -73,7 +72,6 @@ public class Nachweis {
     public String getDatum() {
         return datum;
     }
-    
 
     public ArrayList<Nachweis> getNachweisL() {
         return nachweisL;
@@ -82,8 +80,7 @@ public class Nachweis {
     public int getJahr() {
         return jahr;
     }
-    
-    
+
     // Setter
     public void setId(int id) {
         this.id = id;
@@ -104,52 +101,41 @@ public class Nachweis {
     public void setJahr(int jahr) {
         this.jahr = jahr;
     }
-    
-    
-    
-    
+
     // toString
     @Override
     public String toString() {
         return "Nachweis{" + "id=" + id + ", nr=" + nr + ", benutzer_id=" + benutzer_id + '}';
     }
-    
-    
-    
-    
+
     /**
      * CRUD Funktionen
-     * 
+     *
      */
-    
     /**
      * liefert alle Datensätze aus der Tabelle als ArrayList mit Ojekten zurück
      */
-    public static ArrayList<Nachweis> getAll() {
+    public static ArrayList<Nachweis> getAllNachweis() {
         ArrayList<Nachweis> nachweisL = new ArrayList<>();
         try {
-             // VERBINDUNG AUFBBAUEN:
+            // VERBINDUNG AUFBBAUEN:
             Connection con = MySQLConnection.getConnection();
             // STATEMENT
             String sql = "SELECT * FROM nachweis";
             st = con.createStatement();
             rst = st.executeQuery(sql);
             while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
-                Nachweis nachweis = new Nachweis(rst.getInt("id"),rst.getInt("nr"), 
+                Nachweis nachweis = new Nachweis(rst.getInt("id"), rst.getInt("nr"),
                         rst.getInt("benutzer_id"), rst.getString("datum"),
                         rst.getInt("jahr"));
                 nachweisL.add(nachweis);
-                
-                ArrayList<Nachweis> nachweisList = new ArrayList<>();
-                for (Nachweis nachweis1 : nachweisList) {
-                    
-                }
+
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {
             try {
-                
+
                 if (st != null) {
                     st.close();
                 }
@@ -162,5 +148,5 @@ public class Nachweis {
         }
         return nachweisL;
     }
-    
+
 }
