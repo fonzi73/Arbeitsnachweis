@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import jdk.nashorn.internal.codegen.CompilerConstants;
+import java.util.Date;
 
 /**
  *
@@ -30,12 +31,12 @@ public class Nachweis {
     private int id;
     private int nr;
     private int benutzer_id;
-    private String datum;
+    private Date datum;
     private int jahr;
     private ArrayList<Nachweis> nachweisL;
 
     // Konstruktor
-    public Nachweis(int id, int nr, int benutzer_id, String datum, int jahr) {
+    public Nachweis(int id, int nr, int benutzer_id, Date datum, int jahr) {
         this.id = id;
         this.nr = nr;
         this.benutzer_id = benutzer_id;
@@ -43,7 +44,7 @@ public class Nachweis {
         this.jahr = jahr;
     }
 
-    public Nachweis(int id, int nr, int benutzer_id, String datum) {
+    public Nachweis(int id, int nr, int benutzer_id, Date datum) {
         this.id = id;
         this.nr = nr;
         this.benutzer_id = benutzer_id;
@@ -69,7 +70,7 @@ public class Nachweis {
         return benutzer_id;
     }
 
-    public String getDatum() {
+    public Date getDatum() {
         return datum;
     }
 
@@ -102,6 +103,12 @@ public class Nachweis {
         this.jahr = jahr;
     }
 
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
+    
+    
+
     // toString
     @Override
     public String toString() {
@@ -126,7 +133,7 @@ public class Nachweis {
             rst = st.executeQuery(sql);
             while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
                 Nachweis nachweis = new Nachweis(rst.getInt("id"), rst.getInt("nr"),
-                        rst.getInt("benutzer_id"), rst.getString("datum"),
+                        rst.getInt("benutzer_id"), rst.getDate("datum"),
                         rst.getInt("jahr"));
                 nachweisL.add(nachweis);
 

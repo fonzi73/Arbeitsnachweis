@@ -3781,6 +3781,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;-- zur&#xfc;ck"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonZurueckActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonSpeichern">
               <Properties>
@@ -3794,6 +3797,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="vor --&gt;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVorActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

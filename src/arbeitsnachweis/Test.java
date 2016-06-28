@@ -32,8 +32,9 @@ public class Test {
 //        String formattedDate = new SimpleDateFormat("dd.MM.yyyy").format(date);
 //        System.out.println(formattedDate);
 //        
-        System.out.println(Bericht.getAllBericht().get(1));
+//        System.out.println(Bericht.getAllBericht().get(1));
         
+            System.out.println(Nachweis.getAllNachweis().get(1));
       
  
     }

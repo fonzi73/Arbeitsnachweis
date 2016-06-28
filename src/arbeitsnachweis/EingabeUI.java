@@ -5,11 +5,7 @@
  */
 package arbeitsnachweis;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 /**
  *
@@ -27,19 +23,18 @@ public class EingabeUI extends javax.swing.JFrame {
 
         initComponents();
 
-        
         txtField = new javax.swing.JTextField[]{
             jDocu1, jDocu2, jDocu3, jDocu4, jDocu5, jDocu6, jDocu7, jDocu8, jDocu9, jDocu10,
             jDocu11, jDocu12, jDocu13, jDocu14, jDocu15, jDocu16, jDocu17, jDocu18, jDocu19,
             jDocu20, jDocu21, jDocu22, jDocu23, jDocu24, jDocu25, jDocu26, jDocu27, jDocu28,
-            jDocu29,jDocu30};
-        
+            jDocu29, jDocu30};
+
         stdField = new javax.swing.JTextField[]{
-            jStunden1,jStunden2,jStunden3,jStunden4,jStunden5,jStunden6,jStunden7,
-            jStunden8,jStunden9,jStunden10,jStunden11,jStunden12,jStunden13,jStunden14,
-            jStunden15,jStunden16,jStunden17,jStunden18,jStunden19,jStunden20,
-            jStunden21,jStunden22,jStunden23,jStunden24,jStunden25,jStunden26,
-            jStunden27,jStunden28,jStunden29,jStunden30};
+            jStunden1, jStunden2, jStunden3, jStunden4, jStunden5, jStunden6, jStunden7,
+            jStunden8, jStunden9, jStunden10, jStunden11, jStunden12, jStunden13, jStunden14,
+            jStunden15, jStunden16, jStunden17, jStunden18, jStunden19, jStunden20,
+            jStunden21, jStunden22, jStunden23, jStunden24, jStunden25, jStunden26,
+            jStunden27, jStunden28, jStunden29, jStunden30};
 
         fillWithValues();
     }
@@ -2083,6 +2078,11 @@ public class EingabeUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(228, 228, 228));
 
         jButtonZurueck.setText("<-- zurück");
+        jButtonZurueck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonZurueckActionPerformed(evt);
+            }
+        });
 
         jButtonSpeichern.setText("speichern");
         jButtonSpeichern.addActionListener(new java.awt.event.ActionListener() {
@@ -2092,6 +2092,11 @@ public class EingabeUI extends javax.swing.JFrame {
         });
 
         jButtonVor.setText("vor -->");
+        jButtonVor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -2309,8 +2314,36 @@ public class EingabeUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDatum1ActionPerformed
 
     private void jButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSpeichernActionPerformed
-
+        
+        // Datum speichern
+        
+        
+        // Benutzer speichern
+        Benutzer.getAllBenutzer().get(seiteAktuell).setName(jTextField3.getText());
+        // Arbeitsnachweis speichern
+        //Nachweis.getAllNachweis().get(seiteAktuell).setNr(jTextField2.getNr());
+        
+        
+        // g.getPersonen().get(seiteAktuell).updaten();
     }//GEN-LAST:event_jButtonSpeichernActionPerformed
+
+    private void jButtonVorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVorActionPerformed
+        if (seiteAktuell == Nachweis.getAllNachweis().size() - 1) {
+            seiteAktuell = 0;
+        } else {
+            seiteAktuell++;
+        }
+        fillWithValues();
+    }//GEN-LAST:event_jButtonVorActionPerformed
+
+    private void jButtonZurueckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZurueckActionPerformed
+        if (seiteAktuell == 0) {
+            seiteAktuell = Nachweis.getAllNachweis().size() - 1;
+        } else {
+            seiteAktuell--;
+        }
+        fillWithValues();
+    }//GEN-LAST:event_jButtonZurueckActionPerformed
 
     /**
      * @param args the command line arguments
