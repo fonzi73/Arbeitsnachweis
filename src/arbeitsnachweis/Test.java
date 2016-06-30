@@ -11,19 +11,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.SwingConstants;
 
 /**
  *
  * @author fonzi
  */
 public class Test {
+
     public static void main(String[] args) throws ParseException {
-        
 
 //        System.out.println(Benutzer.getAllBenutzer());
         //Datum.printGregorianCalendarDate();
 //        System.out.println(Nachweis.getAllNachweis());
-        
 //       Calendar cal = Calendar.getInstance();
 //        cal.setTime(new Date());
 //        cal.set(Calendar.DAY_OF_WEEK, 6);
@@ -33,12 +33,21 @@ public class Test {
 //        System.out.println(formattedDate);
 //        
 //        System.out.println(Bericht.getAllBericht().get(1));
+//        System.out.println(Nachweis.getAll().get(0));
+//
+//        for (int i = 0; i < Bericht.getAll().size(); i++) {
+//
+//            System.out.println(Bericht.getAll().get(i));
+//        }
+//
+//        Methoden m = new Methoden();
+//        m.getAktuellenNachweis();
+//        System.out.println(m);
+//        
+        int seiteAktuell = 0;
         
-            System.out.println(Nachweis.getAllNachweis().get(1));
-      
- 
+            System.out.println(Benutzer.getAll().get(seiteAktuell).getName());
+
     }
-    
-    
-    
+
 }

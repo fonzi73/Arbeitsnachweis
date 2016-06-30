@@ -5,7 +5,6 @@
  */
 package arbeitsnachweis;
 
-import static arbeitsnachweis.Benutzer.st;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -86,14 +85,13 @@ public class Bericht {
 //        }
 //       
 //    }
-
     // toString
     @Override
     public String toString() {
         return "Bericht{" + "id=" + id + ", dokumentation=" + dokumentation + ", zeit=" + zeit + ", nachweis_id=" + nachweis_id + '}';
     }
 
-    public static ArrayList<Bericht> getAllBericht() {
+    public static ArrayList<Bericht> getAll() {
         ArrayList<Bericht> berichtL = new ArrayList<>();
         try {
             // VERBINDUNG AUFBBAUEN:
@@ -128,4 +126,112 @@ public class Bericht {
         return berichtL;
     }
 
+    public static ArrayList<Bericht> getAllByNachweisId(int nachweis_id) {
+        ArrayList<Bericht> berichtL = new ArrayList<>();
+        try {
+            // VERBINDUNG AUFBBAUEN:
+            Connection con = MySQLConnection.getConnection();
+            // STATEMENT
+            String sql = "SELECT * FROM bericht WHERE nachweis_id=?";
+
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, nachweis_id);
+            rst = pst.executeQuery();
+
+            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
+                Bericht bericht = new Bericht(rst.getInt("id"),
+                        rst.getString("dokumentation"),
+                        rst.getString("zeit"),
+                        rst.getInt("nachweis_id"));
+
+                berichtL.add(bericht);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+
+                if (st != null) {
+                    st.close();
+                }
+                if (rst != null) {
+                    rst.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return berichtL;
+    }
+
+    public static void insert(Bericht bericht) {
+
+        try {
+            // VERBINDUNG AUFBBAUEN:
+            Connection con = MySQLConnection.getConnection();
+            // STATEMENT
+
+            // Erster Eintrag Zeile
+            String Sql = "INSERT INTO nachweis VALUES (null, ?, ?, ?)";
+            pst = con.prepareStatement(Sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            pst.setString(1, bericht.getDokumentation());
+            pst.setString(2, bericht.getZeit());
+            pst.setInt(3, bericht.getNachweis_id());
+            pst.executeUpdate();
+            rst = pst.getGeneratedKeys();
+            while (rst.next()) {
+                bericht.setId(rst.getInt(1));
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rst != null) {
+                    rst.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
+//    public static void insert(Bericht bericht){
+//        try {
+//            // VERBINDUNG AUFBBAUEN:
+//            Connection con = MySQLConnection.getConnection();
+//            // STATEMENT
+//            String Sql = "INSERT INTO nachweis VALUES (null, ?, ?, ?)";
+//            pst = con.prepareStatement(Sql, PreparedStatement.RETURN_GENERATED_KEYS);
+//            pst.setString(1, bericht.getDokumentation());
+//            pst.setString(2, bericht.getZeit());
+//            pst.setInt(3, bericht.getNachweis_id());
+//            pst.executeUpdate();
+//            rst = pst.getGeneratedKeys();
+//            while (rst.next()) {
+//                bericht.setId(rst.getInt(1));
+//            }         
+//            
+//            
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//            ex.printStackTrace();
+//        } finally {
+//            try {
+//                if (pst != null) {
+//                    pst.close();
+//                }
+//                if (rst != null) {
+//                    rst.close();
+//                }
+//            } catch (SQLException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//        }
+//    }
 }

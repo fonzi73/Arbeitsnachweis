@@ -13,12 +13,15 @@ package arbeitsnachweis;
  */
 public class EingabeUI extends javax.swing.JFrame {
 
-    //Benutzer be = Benutzer();
-    int seiteAktuell = 0;
+    
+    Methoden m = new Methoden();
+    int seiteAktuell;
 
     /**
      * Creates new form EingabeUI
      */
+    
+    
     public EingabeUI() {
 
         initComponents();
@@ -36,6 +39,8 @@ public class EingabeUI extends javax.swing.JFrame {
             jStunden21, jStunden22, jStunden23, jStunden24, jStunden25, jStunden26,
             jStunden27, jStunden28, jStunden29, jStunden30};
 
+        seiteAktuell = Nachweis.getAll().size()-1;
+        
         fillWithValues();
     }
 
@@ -45,22 +50,22 @@ public class EingabeUI extends javax.swing.JFrame {
          * Felder in Blatt Füllen
          */
         // Ausbildungsjahr
-        jTextField1.setText("" + Nachweis.getAllNachweis().get(seiteAktuell).getJahr());
+        jTextField1.setText("" + Nachweis.getAll().get(seiteAktuell).getJahr());
         // Ausbildungsnachweis Nr.
-        jTextField2.setText("" + Nachweis.getAllNachweis().get(seiteAktuell).getNr());
+        jTextField2.setText("" + Nachweis.getAll().get(seiteAktuell).getNr());
         // Benutzer Name
-        jTextField3.setText(Benutzer.getAllBenutzer().get(seiteAktuell).getName());
+        jTextField3.setText(Benutzer.getAll().get(0).getName());
         // Datum beginn der Woche
-        jTextFieldDatum1.setText("" + Nachweis.getAllNachweis().get(seiteAktuell).getDatum());
+        jTextFieldDatum1.setText("" + Nachweis.getAll().get(seiteAktuell).getDatum());
         // Datum ende der Woche
         jTextFieldDatum2.setText("" + Datum.datumFreitag());
         // Doku Felder Montag - Freitag
-        for (int i = 0; i < Bericht.getAllBericht().size(); i++) {
-            txtField[i].setText("" + Bericht.getAllBericht().get(i).getDokumentation());
+        for (int i = 0; i < Bericht.getAll().size(); i++) {
+            txtField[i].setText("" + Bericht.getAll().get(i).getDokumentation());
         }
         // Stunden Felder Montag - Freitag
-        for (int i = 0; i < Bericht.getAllBericht().size(); i++) {
-            stdField[i].setText("" + Bericht.getAllBericht().get(i).getZeit());
+        for (int i = 0; i < Bericht.getAll().size(); i++) {
+            stdField[i].setText("" + Bericht.getAll().get(i).getZeit());
         }
     }
 
@@ -2316,10 +2321,10 @@ public class EingabeUI extends javax.swing.JFrame {
     private void jButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSpeichernActionPerformed
         
         // Datum speichern
-        
+        //Nachweis.insert(nW);
         
         // Benutzer speichern
-        Benutzer.getAllBenutzer().get(seiteAktuell).setName(jTextField3.getText());
+        //Benutzer.getAll().get(seiteAktuell).setName(jTextField3.getText());
         // Arbeitsnachweis speichern
         //Nachweis.getAllNachweis().get(seiteAktuell).setNr(jTextField2.getNr());
         
@@ -2328,17 +2333,13 @@ public class EingabeUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSpeichernActionPerformed
 
     private void jButtonVorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVorActionPerformed
-        if (seiteAktuell == Nachweis.getAllNachweis().size() - 1) {
-            seiteAktuell = 0;
-        } else {
-            seiteAktuell++;
-        }
+        m.getNextNachweis();
         fillWithValues();
     }//GEN-LAST:event_jButtonVorActionPerformed
 
     private void jButtonZurueckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZurueckActionPerformed
         if (seiteAktuell == 0) {
-            seiteAktuell = Nachweis.getAllNachweis().size() - 1;
+            seiteAktuell = Nachweis.getAll().size() - 1;
         } else {
             seiteAktuell--;
         }

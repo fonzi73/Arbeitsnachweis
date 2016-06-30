@@ -84,7 +84,7 @@ public class Benutzer {
     /**
      * liefert alle Datensätze aus der Tabelle als ArrayList mit Ojekten zurück
      */
-    public static ArrayList<Benutzer> getAllBenutzer() {
+    public static ArrayList<Benutzer> getAll() {
         ArrayList<Benutzer> benutzerL = new ArrayList<>();
         try {
              // VERBINDUNG AUFBBAUEN:
@@ -115,7 +115,7 @@ public class Benutzer {
         return benutzerL;
     }
     
-    public static void insertBenutzer(Benutzer user){
+    public static void insert(Benutzer user){
         try {
             // VERBINDUNG AUFBBAUEN:
             Connection con = MySQLConnection.getConnection();
@@ -144,7 +144,7 @@ public class Benutzer {
             }
         }
     }
-     public void updatenBenutzter() {
+     public void updaten() {
         // Verbindung zu MySQL
         try {
             Connection con = MySQLConnection.getConnection();
