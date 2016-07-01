@@ -15,7 +15,7 @@ public class Methoden {
     
     private ArrayList<Benutzer> benutzerL = Benutzer.getAll();
     private ArrayList<Nachweis> nWs = Nachweis.getAll();
-    private ArrayList<Bericht> nBs = Bericht.getAll();
+    //private ArrayList<Bericht> nBs = Bericht.getAll();
     private int aktuellerNWIndex;
     
     public Methoden(){
@@ -24,8 +24,10 @@ public class Methoden {
 
     @Override
     public String toString() {
-        return "Methoden{" + "benutzerL=" + benutzerL + ", nWs=" + nWs + ", nBs=" + nBs + ", aktuellerNWIndex=" + aktuellerNWIndex + '}';
+        return "Methoden{" + "benutzerL=" + benutzerL + ", nWs=" + nWs + ", aktuellerNWIndex=" + aktuellerNWIndex + '}';
     }
+
+   
     
     public Nachweis getAktuellenNachweis(){
         return nWs.get(aktuellerNWIndex);
@@ -42,6 +44,14 @@ public class Methoden {
         nWs.add(nW);
         aktuellerNWIndex = nWs.size() - 1;
     }
+
+    public ArrayList<Nachweis> getnWs() {
+        return nWs;
+    }
+
+//    public ArrayList<Bericht> getnBs() {
+//        return nBs;
+//    }
     
     
     public Nachweis getNextNachweis(){
@@ -72,6 +82,9 @@ public class Methoden {
         return getAktuellenNachweis();
     }
     
+//    public seiteLeeren(){
+//        
+//    }
     
     
 }

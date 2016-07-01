@@ -5,13 +5,14 @@
  */
 package arbeitsnachweis;
 
+import static arbeitsnachweis.Bericht.pst;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import jdk.nashorn.internal.codegen.CompilerConstants;
+
 import java.util.Date;
 
 /**
@@ -29,32 +30,28 @@ public class Nachweis {
     // Objekt Variablen
     private int id;
     private int nr;
-    private int benutzer_id;
+    private int heft_id;
     private Date datum;
-    private int jahr;
-    private ArrayList<Nachweis> nachweisL;
-    private ArrayList<Bericht> berichtL;
+//    private int jahr;
+    private ArrayList<Bericht> nBs;
 
     // Konstruktor
-    public Nachweis(int id, int nr, int benutzer_id, Date datum, int jahr) {
-        this.id = id;
-        this.nr = nr;
-        this.benutzer_id = benutzer_id;
-        this.datum = datum;
-        this.jahr = jahr;
-    }
 
-    public Nachweis(int id, int nr, int benutzer_id, Date datum) {
+    public Nachweis(int id, int nr, int heft_id, Date datum) {
         this.id = id;
         this.nr = nr;
-        this.benutzer_id = benutzer_id;
+        this.heft_id = heft_id;
         this.datum = datum;
     }
 
-    public Nachweis(int id, int nr, int benutzer_id) {
-        this.id = id;
+    public Nachweis(int nr, int heft_id, Date datum) {
         this.nr = nr;
-        this.benutzer_id = benutzer_id;
+        this.heft_id = heft_id;
+        this.datum = datum;
+    }
+
+    public void ladeBerichte(){
+        nBs = Bericht.getAllByNachweisId(id);
     }
 
     // Getter
@@ -66,24 +63,17 @@ public class Nachweis {
         return nr;
     }
 
-    public int getBenutzer_id() {
-        return benutzer_id;
+    public int getHeft_id() {
+        return heft_id;
     }
 
+   
     public Date getDatum() {
         return datum;
     }
 
-    public ArrayList<Nachweis> getNachweisL() {
-        return nachweisL;
-    }
-
-    public int getJahr() {
-        return jahr;
-    }
-
     public ArrayList<Bericht> getBerichtL() {
-        return berichtL;
+        return nBs;
     }
 
     // Setter
@@ -95,16 +85,8 @@ public class Nachweis {
         this.nr = nr;
     }
 
-    public void setBenutzer_id(int benutzer_id) {
-        this.benutzer_id = benutzer_id;
-    }
-
-    public void setNachweisL(ArrayList<Nachweis> nachweisL) {
-        this.nachweisL = nachweisL;
-    }
-
-    public void setJahr(int jahr) {
-        this.jahr = jahr;
+    public void setHeft_id(int heft_id) {
+        this.heft_id = heft_id;
     }
 
     public void setDatum(Date datum) {
@@ -112,13 +94,13 @@ public class Nachweis {
     }
 
     public void setBerichtL(ArrayList<Bericht> berichtL) {
-        this.berichtL = berichtL;
+        this.nBs = berichtL;
     }
 
     // toString
     @Override
     public String toString() {
-        return "Nachweis{" + "id=" + id + ", nr=" + nr + ", benutzer_id=" + benutzer_id + '}';
+        return "Nachweis{" + "id=" + id + ", nr=" + nr + ", heft_id=" + heft_id + '}';
     }
 
     /**
@@ -139,8 +121,7 @@ public class Nachweis {
             rst = st.executeQuery(sql);
             while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
                 Nachweis nachweis = new Nachweis(rst.getInt("id"), rst.getInt("nr"),
-                        rst.getInt("benutzer_id"), rst.getDate("datum"),
-                        rst.getInt("jahr"));
+                        rst.getInt("heft_id"), rst.getDate("datum"));
                 nachweisL.add(nachweis);
             }
             for (Nachweis nachweis : nachweisL) {
@@ -164,18 +145,58 @@ public class Nachweis {
         }
         return nachweisL;
     }
+    
+    public static ArrayList<Nachweis> getAllByHeftId(int heftID) {
+        ArrayList<Nachweis> nWs = new ArrayList<>();
+        try {
+            // VERBINDUNG AUFBBAUEN:
+            Connection con = MySQLConnection.getConnection();
+            // STATEMENT
+            String sql = "SELECT * FROM nachweis WHERE heft_id=?";
+
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, heftID);
+            rst = pst.executeQuery();
+
+            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
+                Nachweis nachweis = new Nachweis(rst.getInt("id"),
+                        rst.getInt("nr"),
+                        rst.getInt("heft_id"),
+                        rst.getDate("datum"));
+                
+                
+                nachweis.ladeBerichte();
+                nWs.add(nachweis);
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+
+                if (st != null) {
+                    st.close();
+                }
+                if (rst != null) {
+                    rst.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return nWs;
+    }
 
     public static void insert(Nachweis nW) {
         try {
             // VERBINDUNG AUFBBAUEN:
             Connection con = MySQLConnection.getConnection();
             // STATEMENT
-            String Sql = "INSERT INTO nachweis VALUES (null, ?, ?, ?, ?)";
+            String Sql = "INSERT INTO nachweis VALUES (null, ?, ?, ?)";
             pst = con.prepareStatement(Sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pst.setInt(1, nW.getNr());
-            pst.setInt(2, nW.getBenutzer_id());
+            pst.setInt(2, nW.getHeft_id());
             pst.setString(3, "" + nW.getDatum());
-            pst.setInt(4, nW.getJahr());
             pst.executeUpdate();
             rst = pst.getGeneratedKeys();
             while (rst.next()) {
@@ -206,11 +227,10 @@ public class Nachweis {
     public static void update(Nachweis nW) {
         try {
             Connection con = MySQLConnection.getConnection();
-            String sql = "UPDATE lernkarte SET nr=?, benutzer_id=?, jahr=? WHERE id=?";
+            String sql = "UPDATE nachweis SET nr=?, heft_id=? WHERE id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, nW.getNr());
-            pst.setInt(2, nW.getBenutzer_id());
-            pst.setInt(3, nW.getJahr());
+            pst.setInt(2, nW.getHeft_id());
             pst.setInt(4, nW.getId());
             pst.executeUpdate();
 

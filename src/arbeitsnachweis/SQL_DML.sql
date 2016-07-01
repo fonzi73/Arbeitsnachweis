@@ -14,13 +14,20 @@ CREATE TABLE `benutzer` (
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `heft` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`benutzer_id` int(11) not null,
+PRIMARY KEY (`id`),
+FOREIGN KEY (`benutzer_id`) REFERENCES `benutzer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `nachweis` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `nr` int(11) DEFAULT NULL,
-`benutzer_id` int(11) NOT NULL,
+`heft_id` int(11) NOT NULL,
 `datum` DATE,
 PRIMARY KEY (`id`),
-FOREIGN KEY (`benutzer_id`) REFERENCES `benutzer` (`id`)
+FOREIGN KEY (`heft_id`) REFERENCES `heft` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `bericht` (

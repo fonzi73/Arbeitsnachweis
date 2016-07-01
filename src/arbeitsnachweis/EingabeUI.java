@@ -5,23 +5,19 @@
  */
 package arbeitsnachweis;
 
-
-
 /**
  *
  * @author fonzi
  */
 public class EingabeUI extends javax.swing.JFrame {
 
-    
     Methoden m = new Methoden();
+    
     int seiteAktuell;
 
     /**
      * Creates new form EingabeUI
      */
-    
-    
     public EingabeUI() {
 
         initComponents();
@@ -39,8 +35,8 @@ public class EingabeUI extends javax.swing.JFrame {
             jStunden21, jStunden22, jStunden23, jStunden24, jStunden25, jStunden26,
             jStunden27, jStunden28, jStunden29, jStunden30};
 
-        seiteAktuell = Nachweis.getAll().size()-1;
-        
+        seiteAktuell = Nachweis.getAll().size() - 1;
+
         fillWithValues();
     }
 
@@ -50,23 +46,22 @@ public class EingabeUI extends javax.swing.JFrame {
          * Felder in Blatt Füllen
          */
         // Ausbildungsjahr
-        jTextField1.setText("" + Nachweis.getAll().get(seiteAktuell).getJahr());
+       // Ausbildungsjahr.setText("" + m.getnWs().get(seiteAktuell).getJahr());
         // Ausbildungsnachweis Nr.
-        jTextField2.setText("" + Nachweis.getAll().get(seiteAktuell).getNr());
+        Nachweisnummer.setText("" + m.getnWs().get(seiteAktuell).getNr());
         // Benutzer Name
-        jTextField3.setText(Benutzer.getAll().get(0).getName());
+        Name.setText(Benutzer.getAll().get(0).getName());
         // Datum beginn der Woche
-        jTextFieldDatum1.setText("" + Nachweis.getAll().get(seiteAktuell).getDatum());
+        startDatum.setText("" + m.getnWs().get(seiteAktuell).getDatum());
         // Datum ende der Woche
-        jTextFieldDatum2.setText("" + Datum.datumFreitag());
+        endDatum.setText("" + Datum.datumFreitag());
+        
+
         // Doku Felder Montag - Freitag
-        for (int i = 0; i < Bericht.getAll().size(); i++) {
-            txtField[i].setText("" + Bericht.getAll().get(i).getDokumentation());
-        }
+       
         // Stunden Felder Montag - Freitag
-        for (int i = 0; i < Bericht.getAll().size(); i++) {
-            stdField[i].setText("" + Bericht.getAll().get(i).getZeit());
-        }
+
+        
     }
 
     /**
@@ -79,22 +74,22 @@ public class EingabeUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelArbeitsblatt = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        Nachweisnummer = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Ausbildungsjahr = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldDatum1 = new javax.swing.JTextField();
-        jTextFieldDatum2 = new javax.swing.JTextField();
+        startDatum = new javax.swing.JTextField();
+        endDatum = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextFieldGSMo = new javax.swing.JTextField();
+        GesamtMontag = new javax.swing.JTextField();
         jPanelMontag = new javax.swing.JPanel();
         jPanelMo1 = new javax.swing.JPanel();
         jDocu1 = new javax.swing.JTextField();
@@ -147,7 +142,7 @@ public class EingabeUI extends javax.swing.JFrame {
         jStunden11 = new javax.swing.JTextField();
         jPanelSD1 = new javax.swing.JPanel();
         jStunden7 = new javax.swing.JTextField();
-        jTextFieldGSDi = new javax.swing.JTextField();
+        GesamtDienstag = new javax.swing.JTextField();
         jPanelMittwoch = new javax.swing.JPanel();
         jPanelMi1 = new javax.swing.JPanel();
         jDocu13 = new javax.swing.JTextField();
@@ -174,7 +169,7 @@ public class EingabeUI extends javax.swing.JFrame {
         jStunden17 = new javax.swing.JTextField();
         jPanelSMi1 = new javax.swing.JPanel();
         jStunden13 = new javax.swing.JTextField();
-        jTextFieldGSMi = new javax.swing.JTextField();
+        GesamtMittwoch = new javax.swing.JTextField();
         jPanelDonnerstag = new javax.swing.JPanel();
         jPanelDo1 = new javax.swing.JPanel();
         jDocu19 = new javax.swing.JTextField();
@@ -201,7 +196,7 @@ public class EingabeUI extends javax.swing.JFrame {
         jStunden23 = new javax.swing.JTextField();
         jPanelSDo1 = new javax.swing.JPanel();
         jStunden19 = new javax.swing.JTextField();
-        jTextFieldGSDo = new javax.swing.JTextField();
+        GesamtDonnerstag = new javax.swing.JTextField();
         jPanelFreitag = new javax.swing.JPanel();
         jPanelFr1 = new javax.swing.JPanel();
         jDocu25 = new javax.swing.JTextField();
@@ -228,12 +223,12 @@ public class EingabeUI extends javax.swing.JFrame {
         jStunden29 = new javax.swing.JTextField();
         jPanelSFr1 = new javax.swing.JPanel();
         jStunden25 = new javax.swing.JTextField();
-        jTextFieldGSFr = new javax.swing.JTextField();
+        GesamtFreitag = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jButtonZurueck = new javax.swing.JButton();
         jButtonSpeichern = new javax.swing.JButton();
         jButtonVor = new javax.swing.JButton();
-        jTextFieldGesamtStunden = new javax.swing.JTextField();
+        GesamtStunden = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -241,48 +236,46 @@ public class EingabeUI extends javax.swing.JFrame {
 
         jPanelArbeitsblatt.setBackground(new java.awt.Color(228, 228, 228));
 
-        jTextField2.setBackground(new java.awt.Color(255, 204, 204));
+        Nachweisnummer.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setLabelFor(jTextField2);
+        jLabel1.setLabelFor(Nachweisnummer);
         jLabel1.setText("Ausbildungsnachweis Nr.");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setLabelFor(jTextField3);
+        jLabel2.setLabelFor(Name);
         jLabel2.setText("Name");
 
-        jTextField3.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        Name.setBackground(new java.awt.Color(255, 204, 204));
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
 
-        jLabel3.setLabelFor(jTextField1);
+        jLabel3.setLabelFor(Ausbildungsjahr);
         jLabel3.setText("Ausbildungsjahr");
         jLabel3.setToolTipText("");
 
-        jTextField1.setBackground(new java.awt.Color(255, 204, 204));
+        Ausbildungsjahr.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel4.setText("Für die Woche vom ");
 
         jLabel5.setText("bis");
 
-        jTextFieldDatum1.setEditable(false);
-        jTextFieldDatum1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldDatum1.setEnabled(false);
-        jTextFieldDatum1.addActionListener(new java.awt.event.ActionListener() {
+        startDatum.setBackground(new java.awt.Color(255, 204, 204));
+        startDatum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDatum1ActionPerformed(evt);
+                startDatumActionPerformed(evt);
             }
         });
 
-        jTextFieldDatum2.setEditable(false);
-        jTextFieldDatum2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldDatum2.setEnabled(false);
-        jTextFieldDatum2.addActionListener(new java.awt.event.ActionListener() {
+        endDatum.setEditable(false);
+        endDatum.setBackground(new java.awt.Color(204, 204, 204));
+        endDatum.setEnabled(false);
+        endDatum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDatum2ActionPerformed(evt);
+                endDatumActionPerformed(evt);
             }
         });
 
@@ -300,8 +293,8 @@ public class EingabeUI extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("Gesamt");
 
-        jTextFieldGSMo.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldGSMo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        GesamtMontag.setBackground(new java.awt.Color(204, 204, 204));
+        GesamtMontag.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jPanelMontag.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -1009,8 +1002,8 @@ public class EingabeUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jTextFieldGSDi.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldGSDi.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        GesamtDienstag.setBackground(new java.awt.Color(204, 204, 204));
+        GesamtDienstag.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jPanelMittwoch.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -1365,8 +1358,8 @@ public class EingabeUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jTextFieldGSMi.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldGSMi.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        GesamtMittwoch.setBackground(new java.awt.Color(204, 204, 204));
+        GesamtMittwoch.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jPanelDonnerstag.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -1721,8 +1714,8 @@ public class EingabeUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jTextFieldGSDo.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldGSDo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        GesamtDonnerstag.setBackground(new java.awt.Color(204, 204, 204));
+        GesamtDonnerstag.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jPanelFreitag.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -2077,8 +2070,8 @@ public class EingabeUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jTextFieldGSFr.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldGSFr.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        GesamtFreitag.setBackground(new java.awt.Color(204, 204, 204));
+        GesamtFreitag.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jPanel1.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -2127,8 +2120,8 @@ public class EingabeUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTextFieldGesamtStunden.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldGesamtStunden.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        GesamtStunden.setBackground(new java.awt.Color(204, 204, 204));
+        GesamtStunden.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Gesamtstunden");
@@ -2143,11 +2136,11 @@ public class EingabeUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(20, 20, 20)
-                .addComponent(jTextFieldDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(startDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel5)
                 .addGap(20, 20, 20)
-                .addComponent(jTextFieldDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(endDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
             .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                 .addContainerGap()
@@ -2174,22 +2167,22 @@ public class EingabeUI extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                             .addComponent(jLabel10)
-                                            .addComponent(jTextFieldGSMo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldGSDi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldGSMi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(GesamtMontag, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(GesamtDienstag, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(GesamtMittwoch, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                                         .addComponent(jPanelStundenDonnerstag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldGSDo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(GesamtDonnerstag, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                                         .addComponent(jPanelStundenFreitag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldGSFr, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(GesamtFreitag, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldGesamtStunden, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(GesamtStunden, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(30, 30, 30)
@@ -2197,15 +2190,15 @@ public class EingabeUI extends javax.swing.JFrame {
                     .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(20, 20, 20)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Ausbildungsjahr, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1)
                         .addGap(20, 20, 20)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Nachweisnummer, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(jLabel2)
                         .addGap(20, 20, 20)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelArbeitsblattLayout.setVerticalGroup(
@@ -2217,16 +2210,16 @@ public class EingabeUI extends javax.swing.JFrame {
                     .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jLabel5)
-                        .addComponent(jTextFieldDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(startDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(endDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Nachweisnummer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ausbildungsjahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2247,29 +2240,29 @@ public class EingabeUI extends javax.swing.JFrame {
                                 .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                                         .addGap(87, 87, 87)
-                                        .addComponent(jTextFieldGSMi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(GesamtMittwoch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jPanelStundenMittwoch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(5, 5, 5)
                                 .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jPanelStundenDonnerstag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jPanelDonnerstag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextFieldGSDo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(GesamtDonnerstag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(5, 5, 5)
                                 .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jPanelFreitag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jPanelStundenFreitag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextFieldGSFr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(GesamtFreitag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jPanelMittwoch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                         .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanelStundenMontag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldGSMo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(GesamtMontag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                                 .addGap(94, 94, 94)
-                                .addComponent(jTextFieldGSDi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(GesamtDienstag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(jPanelStundenDienstag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -2281,7 +2274,7 @@ public class EingabeUI extends javax.swing.JFrame {
                     .addGroup(jPanelArbeitsblattLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanelArbeitsblattLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldGesamtStunden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(GesamtStunden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -2306,34 +2299,31 @@ public class EingabeUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
 
-    private void jTextFieldDatum2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatum2ActionPerformed
+    private void endDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endDatumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDatum2ActionPerformed
+    }//GEN-LAST:event_endDatumActionPerformed
 
-    private void jTextFieldDatum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatum1ActionPerformed
+    private void startDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startDatumActionPerformed
 
-    }//GEN-LAST:event_jTextFieldDatum1ActionPerformed
+    }//GEN-LAST:event_startDatumActionPerformed
 
     private void jButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSpeichernActionPerformed
-        
+
         // Datum speichern
         //Nachweis.insert(nW);
-        
         // Benutzer speichern
         //Benutzer.getAll().get(seiteAktuell).setName(jTextField3.getText());
         // Arbeitsnachweis speichern
         //Nachweis.getAllNachweis().get(seiteAktuell).setNr(jTextField2.getNr());
-        
-        
         // g.getPersonen().get(seiteAktuell).updaten();
     }//GEN-LAST:event_jButtonSpeichernActionPerformed
 
     private void jButtonVorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVorActionPerformed
-        m.getNextNachweis();
+        
         fillWithValues();
     }//GEN-LAST:event_jButtonVorActionPerformed
 
@@ -2343,6 +2333,7 @@ public class EingabeUI extends javax.swing.JFrame {
         } else {
             seiteAktuell--;
         }
+
         fillWithValues();
     }//GEN-LAST:event_jButtonZurueckActionPerformed
 
@@ -2384,6 +2375,16 @@ public class EingabeUI extends javax.swing.JFrame {
     private javax.swing.JTextField[] txtField;
     private javax.swing.JTextField[] stdField;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Ausbildungsjahr;
+    private javax.swing.JTextField GesamtDienstag;
+    private javax.swing.JTextField GesamtDonnerstag;
+    private javax.swing.JTextField GesamtFreitag;
+    private javax.swing.JTextField GesamtMittwoch;
+    private javax.swing.JTextField GesamtMontag;
+    private javax.swing.JTextField GesamtStunden;
+    private javax.swing.JTextField Nachweisnummer;
+    private javax.swing.JTextField Name;
+    private javax.swing.JTextField endDatum;
     private javax.swing.JButton jButtonSpeichern;
     private javax.swing.JButton jButtonVor;
     private javax.swing.JButton jButtonZurueck;
@@ -2530,16 +2531,6 @@ public class EingabeUI extends javax.swing.JFrame {
     private javax.swing.JTextField jStunden7;
     private javax.swing.JTextField jStunden8;
     private javax.swing.JTextField jStunden9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextFieldDatum1;
-    private javax.swing.JTextField jTextFieldDatum2;
-    private javax.swing.JTextField jTextFieldGSDi;
-    private javax.swing.JTextField jTextFieldGSDo;
-    private javax.swing.JTextField jTextFieldGSFr;
-    private javax.swing.JTextField jTextFieldGSMi;
-    private javax.swing.JTextField jTextFieldGSMo;
-    private javax.swing.JTextField jTextFieldGesamtStunden;
+    private javax.swing.JTextField startDatum;
     // End of variables declaration//GEN-END:variables
 }

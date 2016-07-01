@@ -60,11 +60,11 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTextFieldDatum1" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="startDatum" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTextFieldDatum2" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="endDatum" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -94,20 +94,20 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="2" attributes="0">
                                               <Component id="jLabel10" alignment="2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldGSMo" alignment="2" min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldGSDi" alignment="2" min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldGSMi" alignment="2" min="-2" pref="44" max="-2" attributes="0"/>
+                                              <Component id="GesamtMontag" alignment="2" min="-2" pref="44" max="-2" attributes="0"/>
+                                              <Component id="GesamtDienstag" alignment="2" min="-2" pref="44" max="-2" attributes="0"/>
+                                              <Component id="GesamtMittwoch" alignment="2" min="-2" pref="44" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jPanelStundenDonnerstag" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jTextFieldGSDo" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="GesamtDonnerstag" min="-2" pref="44" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jPanelStundenFreitag" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jTextFieldGSFr" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="GesamtFreitag" min="-2" pref="44" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -115,7 +115,7 @@
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jTextFieldGesamtStunden" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="GesamtStunden" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -127,15 +127,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="Ausbildungsjahr" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jTextField2" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="Nachweisnummer" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jTextField3" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="Name" min="-2" pref="157" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -151,18 +151,18 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldDatum1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldDatum2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="startDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="endDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Component id="jLabel2" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="Nachweisnummer" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="Ausbildungsjahr" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="Name" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -187,7 +187,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldGSMi" min="-2" max="-2" attributes="0"/>
+                                          <Component id="GesamtMittwoch" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jPanelStundenMittwoch" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -197,7 +197,7 @@
                                           <Component id="jPanelStundenDonnerstag" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jPanelDonnerstag" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextFieldGSDo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="GesamtDonnerstag" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -205,7 +205,7 @@
                                           <Component id="jPanelFreitag" min="-2" max="-2" attributes="0"/>
                                           <Component id="jPanelStundenFreitag" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextFieldGSFr" min="-2" max="-2" attributes="0"/>
+                                      <Component id="GesamtFreitag" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jPanelMittwoch" min="-2" max="-2" attributes="0"/>
@@ -214,12 +214,12 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jPanelStundenMontag" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldGSMo" min="-2" max="-2" attributes="0"/>
+                              <Component id="GesamtMontag" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldGSDi" min="-2" max="-2" attributes="0"/>
+                                  <Component id="GesamtDienstag" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -237,7 +237,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldGesamtStunden" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="GesamtStunden" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -248,7 +248,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="Nachweisnummer">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="ff" type="rgb"/>
@@ -261,7 +261,7 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField2"/>
+              <ComponentRef name="Nachweisnummer"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ausbildungsnachweis Nr."/>
           </Properties>
@@ -272,31 +272,31 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField3"/>
+              <ComponentRef name="Name"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="Name">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField1"/>
+              <ComponentRef name="Ausbildungsjahr"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ausbildungsjahr"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="Ausbildungsjahr">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="ff" type="rgb"/>
@@ -313,19 +313,17 @@
             <Property name="text" type="java.lang.String" value="bis"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDatum1">
+        <Component class="javax.swing.JTextField" name="startDatum">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+              <Color blue="cc" green="cc" red="ff" type="rgb"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDatum1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startDatumActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDatum2">
+        <Component class="javax.swing.JTextField" name="endDatum">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -334,7 +332,7 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDatum2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="endDatumActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -376,7 +374,7 @@
             <Property name="text" type="java.lang.String" value="Gesamt"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldGSMo">
+        <Component class="javax.swing.JTextField" name="GesamtMontag">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1714,7 +1712,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextFieldGSDi">
+        <Component class="javax.swing.JTextField" name="GesamtDienstag">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2387,7 +2385,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextFieldGSMi">
+        <Component class="javax.swing.JTextField" name="GesamtMittwoch">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -3060,7 +3058,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextFieldGSDo">
+        <Component class="javax.swing.JTextField" name="GesamtDonnerstag">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -3733,7 +3731,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextFieldGSFr">
+        <Component class="javax.swing.JTextField" name="GesamtFreitag">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -3803,7 +3801,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextFieldGesamtStunden">
+        <Component class="javax.swing.JTextField" name="GesamtStunden">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>

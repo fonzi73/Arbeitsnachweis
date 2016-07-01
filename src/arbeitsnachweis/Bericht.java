@@ -29,7 +29,7 @@ public class Bericht {
     private String dokumentation;
     private String zeit;
     private int nachweis_id;
-    private ArrayList<Bericht> berichtL;
+    
 
     // Konstruktor
     public Bericht(int id, String dokumentation, String zeit, int nachweis_id) {
@@ -56,10 +56,7 @@ public class Bericht {
         return nachweis_id;
     }
 
-    public ArrayList<Bericht> getBerichtL() {
-        return berichtL;
-    }
-
+    
     // Setter
     public void setId(int id) {
         this.id = id;
@@ -73,18 +70,8 @@ public class Bericht {
         this.nachweis_id = nachweis_id;
     }
 
-    public void setBerichtL(ArrayList<Bericht> berichtL) {
-        this.berichtL = berichtL;
-    }
+    
 
-//    public  ArrayList<Bericht> getBerichtID() {
-//        ArrayList<Bericht> auslesen = Bericht.getAllBericht();
-//
-//        for (int i = 0; i <= auslesen.size(); i++) {
-//            System.out.println(i);
-//        }
-//       
-//    }
     // toString
     @Override
     public String toString() {
@@ -201,6 +188,33 @@ public class Bericht {
         }
     }
 
+    public static void update(Nachweis nW) {
+        try {
+            Connection con = MySQLConnection.getConnection();
+            String sql = "UPDATE nachweis SET nr=?, heft_id=? WHERE id=?";
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, nW.getNr());
+            pst.setInt(2, nW.getHeft_id());
+            pst.setInt(4, nW.getId());
+            pst.executeUpdate();
+
+            Nachweis.insert(nW);
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+    
+    
 //    public static void insert(Bericht bericht){
 //        try {
 //            // VERBINDUNG AUFBBAUEN:

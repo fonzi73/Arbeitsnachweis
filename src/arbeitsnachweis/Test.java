@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.SwingConstants;
 
 /**
@@ -44,9 +45,16 @@ public class Test {
 //        m.getAktuellenNachweis();
 //        System.out.println(m);
 //        
-        int seiteAktuell = 0;
-        
-            System.out.println(Benutzer.getAll().get(seiteAktuell).getName());
+//        int seiteAktuell = 0;
+//        
+//            System.out.println(Benutzer.getAll().get(seiteAktuell).getName());
+//        System.out.println(Bericht.getAllByNachweisId(1));
+//            System.out.println(Nachweis.getAllByHeftId(1));
+//            Nachweis n = new Nachweis(1, 1, 1, GregorianCalendar.getInstance().getTime());
+//            
+//            System.out.println(n);
+//            
+        System.out.println(Bericht.getAllByNachweisId(3));
 
     }
 
