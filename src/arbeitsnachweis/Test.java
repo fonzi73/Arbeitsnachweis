@@ -54,7 +54,8 @@ public class Test {
 //            
 //            System.out.println(n);
 //            
-        System.out.println(Bericht.getAllByNachweisId(3));
+//        System.out.println(Bericht.getAllByNachweisId(3));
+       
 
     }
 

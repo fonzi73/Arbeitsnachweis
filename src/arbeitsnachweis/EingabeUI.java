@@ -5,15 +5,17 @@
  */
 package arbeitsnachweis;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author fonzi
  */
 public class EingabeUI extends javax.swing.JFrame {
 
-    Methoden m = new Methoden();
+    Heft h = Heft.getById(1);
     
-    int seiteAktuell;
+    
 
     /**
      * Creates new form EingabeUI
@@ -35,11 +37,21 @@ public class EingabeUI extends javax.swing.JFrame {
             jStunden21, jStunden22, jStunden23, jStunden24, jStunden25, jStunden26,
             jStunden27, jStunden28, jStunden29, jStunden30};
 
-        seiteAktuell = Nachweis.getAll().size() - 1;
+        
 
         fillWithValues();
+        
     }
 
+    public void leereFelder(){
+        for (JTextField jTextField : txtField) {
+            jTextField.setText("");
+        }
+        for (JTextField jTextField : stdField) {
+            jTextField.setText("");
+        }
+    }
+    
     private void fillWithValues() {
 
         /**
@@ -48,19 +60,24 @@ public class EingabeUI extends javax.swing.JFrame {
         // Ausbildungsjahr
        // Ausbildungsjahr.setText("" + m.getnWs().get(seiteAktuell).getJahr());
         // Ausbildungsnachweis Nr.
-        Nachweisnummer.setText("" + m.getnWs().get(seiteAktuell).getNr());
+        Nachweisnummer.setText("" + h.getAktuellenNachweis().getNr());
         // Benutzer Name
-        Name.setText(Benutzer.getAll().get(0).getName());
+        Name.setText("" + h.getBenutzer().getName());
         // Datum beginn der Woche
-        startDatum.setText("" + m.getnWs().get(seiteAktuell).getDatum());
+        startDatum.setText("" + h.getAktuellenNachweis().getDatum());
         // Datum ende der Woche
         endDatum.setText("" + Datum.datumFreitag());
         
 
         // Doku Felder Montag - Freitag
-       
+        for (int i = 0; i < h.getAktuellenNachweis().getBerichtL().size(); i++) {
+            txtField[i].setText("" + h.getAktuellenNachweis().getBerichtL().get(i).getDokumentation());
+        }
+               
         // Stunden Felder Montag - Freitag
-
+        for (int i = 0; i < h.getAktuellenNachweis().getBerichtL().size(); i++) {
+            stdField[i].setText("" + h.getAktuellenNachweis().getBerichtL().get(i).getZeit());
+        }
         
     }
 
@@ -2323,17 +2340,14 @@ public class EingabeUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSpeichernActionPerformed
 
     private void jButtonVorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVorActionPerformed
-        
+        h.getNextNachweis();
+        leereFelder();
         fillWithValues();
     }//GEN-LAST:event_jButtonVorActionPerformed
 
     private void jButtonZurueckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZurueckActionPerformed
-        if (seiteAktuell == 0) {
-            seiteAktuell = Nachweis.getAll().size() - 1;
-        } else {
-            seiteAktuell--;
-        }
-
+        h.getPrevNachweis();
+        leereFelder();
         fillWithValues();
     }//GEN-LAST:event_jButtonZurueckActionPerformed
 

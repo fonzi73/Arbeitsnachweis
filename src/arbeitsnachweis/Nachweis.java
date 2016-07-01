@@ -76,6 +76,12 @@ public class Nachweis {
         return nBs;
     }
 
+    public ArrayList<Bericht> getnBs() {
+        return nBs;
+    }
+    
+    
+
     // Setter
     public void setId(int id) {
         this.id = id;
@@ -97,6 +103,12 @@ public class Nachweis {
         this.nBs = berichtL;
     }
 
+    public void setnBs(ArrayList<Bericht> nBs) {
+        this.nBs = nBs;
+    }
+    
+    
+
     // toString
     @Override
     public String toString() {
@@ -110,41 +122,41 @@ public class Nachweis {
     /**
      * liefert alle Datensätze aus der Tabelle als ArrayList mit Ojekten zurück
      */
-    public static ArrayList<Nachweis> getAll() {
-        ArrayList<Nachweis> nachweisL = new ArrayList<>();
-        try {
-            // VERBINDUNG AUFBBAUEN:
-            Connection con = MySQLConnection.getConnection();
-            // STATEMENT
-            String sql = "SELECT * FROM nachweis";
-            st = con.createStatement();
-            rst = st.executeQuery(sql);
-            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
-                Nachweis nachweis = new Nachweis(rst.getInt("id"), rst.getInt("nr"),
-                        rst.getInt("heft_id"), rst.getDate("datum"));
-                nachweisL.add(nachweis);
-            }
-            for (Nachweis nachweis : nachweisL) {
-                nachweis.setBerichtL(Bericht.getAllByNachweisId(nachweis.getId()));
-            }
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-
-                if (st != null) {
-                    st.close();
-                }
-                if (rst != null) {
-                    rst.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-        return nachweisL;
-    }
+//    public static ArrayList<Nachweis> getAll() {
+//        ArrayList<Nachweis> nachweisL = new ArrayList<>();
+//        try {
+//            // VERBINDUNG AUFBBAUEN:
+//            Connection con = MySQLConnection.getConnection();
+//            // STATEMENT
+//            String sql = "SELECT * FROM nachweis";
+//            st = con.createStatement();
+//            rst = st.executeQuery(sql);
+//            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
+//                Nachweis nachweis = new Nachweis(rst.getInt("id"), rst.getInt("nr"),
+//                        rst.getInt("heft_id"), rst.getDate("datum"));
+//                nachweisL.add(nachweis);
+//            }
+//            for (Nachweis nachweis : nachweisL) {
+//                nachweis.setBerichtL(Bericht.getAllByNachweisId(nachweis.getId()));
+//            }
+//
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        } finally {
+//            try {
+//
+//                if (st != null) {
+//                    st.close();
+//                }
+//                if (rst != null) {
+//                    rst.close();
+//                }
+//            } catch (SQLException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//        }
+//        return nachweisL;
+//    }
     
     public static ArrayList<Nachweis> getAllByHeftId(int heftID) {
         ArrayList<Nachweis> nWs = new ArrayList<>();

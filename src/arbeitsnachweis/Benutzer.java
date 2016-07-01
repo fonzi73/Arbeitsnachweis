@@ -5,6 +5,7 @@
  */
 package arbeitsnachweis;
 
+import static arbeitsnachweis.Nachweis.pst;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -84,15 +85,18 @@ public class Benutzer {
     /**
      * liefert alle Datensätze aus der Tabelle als ArrayList mit Ojekten zurück
      */
-    public static ArrayList<Benutzer> getAll() {
+    public static Benutzer getById(int id) {
         ArrayList<Benutzer> benutzerL = new ArrayList<>();
         try {
              // VERBINDUNG AUFBBAUEN:
             Connection con = MySQLConnection.getConnection();
             // STATEMENT
-            String sql = "SELECT * FROM benutzer";
-            st = con.createStatement();
-            rst = st.executeQuery(sql);
+            String sql = "SELECT * FROM benutzer WHERE id=?";
+            
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            rst = pst.executeQuery();
+            
             while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
                 Benutzer benutzer = new Benutzer(rst.getInt("id"), rst.getString("name"));
                 benutzerL.add(benutzer);
@@ -112,7 +116,7 @@ public class Benutzer {
                 System.out.println(ex.getMessage());
             }
         }
-        return benutzerL;
+        return benutzerL.get(0);
     }
     
     public static void insert(Benutzer user){

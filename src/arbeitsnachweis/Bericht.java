@@ -78,40 +78,40 @@ public class Bericht {
         return "Bericht{" + "id=" + id + ", dokumentation=" + dokumentation + ", zeit=" + zeit + ", nachweis_id=" + nachweis_id + '}';
     }
 
-    public static ArrayList<Bericht> getAll() {
-        ArrayList<Bericht> berichtL = new ArrayList<>();
-        try {
-            // VERBINDUNG AUFBBAUEN:
-            Connection con = MySQLConnection.getConnection();
-            // STATEMENT
-            String sql = "SELECT * FROM bericht";
-            st = con.createStatement();
-            rst = st.executeQuery(sql);
-            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
-                Bericht bericht = new Bericht(rst.getInt("id"),
-                        rst.getString("dokumentation"),
-                        rst.getString("zeit"),
-                        rst.getInt("nachweis_id"));
-
-                berichtL.add(bericht);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-
-                if (st != null) {
-                    st.close();
-                }
-                if (rst != null) {
-                    rst.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-        return berichtL;
-    }
+//    public static ArrayList<Bericht> getAll() {
+//        ArrayList<Bericht> berichtL = new ArrayList<>();
+//        try {
+//            // VERBINDUNG AUFBBAUEN:
+//            Connection con = MySQLConnection.getConnection();
+//            // STATEMENT
+//            String sql = "SELECT * FROM bericht";
+//            st = con.createStatement();
+//            rst = st.executeQuery(sql);
+//            while (rst.next()) { // rst.next bewirkt ein Stop wen keine weiteren Datensätze vorhanden sind
+//                Bericht bericht = new Bericht(rst.getInt("id"),
+//                        rst.getString("dokumentation"),
+//                        rst.getString("zeit"),
+//                        rst.getInt("nachweis_id"));
+//
+//                berichtL.add(bericht);
+//            }
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        } finally {
+//            try {
+//
+//                if (st != null) {
+//                    st.close();
+//                }
+//                if (rst != null) {
+//                    rst.close();
+//                }
+//            } catch (SQLException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//        }
+//        return berichtL;
+//    }
 
     public static ArrayList<Bericht> getAllByNachweisId(int nachweis_id) {
         ArrayList<Bericht> berichtL = new ArrayList<>();
