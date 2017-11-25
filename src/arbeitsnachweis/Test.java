@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 /**
  *
  * @author fonzi
+ Tino sitzt neben mir
  */
 public class Test {
 
